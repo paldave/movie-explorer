@@ -1,19 +1,28 @@
 import { API_REQUEST, API_FINISH, API_ERROR } from '../constants';
 
 // TODO
-const initialState = {}; 
+const initialState = {
+  pendingRequests: 0
+}; 
 
 const userInterface = (state = initialState, action) => {
   switch(action.type) {
     case API_REQUEST:
       return {
         ...state,
-        // ...action.payload
+        pendingRequests: state.pendingRequests + 1
       };
     case API_FINISH:
-      return { ...state };
+      return {
+        ...state,
+        pendingRequests: state.pendingRequests - 1
+      };
     case API_ERROR:
-      return { ...state };
+      return {
+        ...state,
+        pendingRequests: state.pendingRequests - 1
+        // TODO: Error handling
+      };
     default:
       return state;
   }

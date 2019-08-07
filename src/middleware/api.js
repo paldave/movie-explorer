@@ -12,6 +12,7 @@ const axiosClient = axios.create(
 );
 
 const apiFinish = () => ({ type: API_FINISH });
+const apiError = () => ({ type: API_ERROR });
 
 export const apiMiddleware = ({ dispatch }) => next => action => {
   next(action);
@@ -27,6 +28,9 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
       dispatch(onSuccess(data));
       dispatch(apiFinish());
     })
-    .catch((error) => console.log(error)); // TODO
+    .catch((error) => {
+      console.log(error)
+      dispatch(apiError());
+    }); // TODO
 
 };
