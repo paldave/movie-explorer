@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchMovieNowPlaying } from '../actions/movies/nowPlaying';
 
 class Home extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchMovieNowPlaying();
   }
 
@@ -17,9 +17,9 @@ class Home extends Component {
   }
 }
 
-// Home.propTypes = {
-//   fetchMovieNowPlaying: PropTypes.func.isRequired,
-// };
+Home.propTypes = {
+  fetchMovieNowPlaying: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   moviesNowPlaying: state.moviesNowPlaying

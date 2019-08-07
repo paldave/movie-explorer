@@ -9,7 +9,7 @@ const moviesNowPlaying = (state = initialState, action) => {
     case GET_MOVIES_NOW_PLAYING:
       return {
         ...state,
-        ...action.payload
+        ...action.payload.results
       };
     default:
       return state;
