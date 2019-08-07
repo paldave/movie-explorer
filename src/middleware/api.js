@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_REQUEST } from '../constants';
+import { API_REQUEST, API_FINISH, API_ERROR } from '../constants';
 
 const axiosClient = axios.create(
   { 
@@ -11,9 +11,9 @@ const axiosClient = axios.create(
   }
 );
 
+const apiFinish = () => ({ type: API_FINISH });
+
 export const apiMiddleware = ({ dispatch }) => next => action => {
-  console.log(axiosClient.defaults);
-  console.log(action);
   next(action);
 
   if (action.type !== API_REQUEST) {
@@ -23,7 +23,10 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
   const { url, onSuccess, method = 'GET' } = action.payload;
 
   axiosClient.request({ url, method })
-    .then(({ data }) => dispatch(onSuccess(data)))
+    .then(({ data }) => {
+      dispatch(onSuccess(data));
+      dispatch(apiFinish());
+    })
     .catch((error) => console.log(error)); // TODO
 
 };
