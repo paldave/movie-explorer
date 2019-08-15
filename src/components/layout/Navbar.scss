@@ -1,0 +1,57 @@
+.navbar {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  padding: 0 80px;
+  display: flex;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  justify-content: space-between;
+  
+  li {
+    list-style: none;
+    padding: 4px 4px;
+    margin-top: 0;
+  }
+  
+  .navbar-left {
+    height: 100%;
+    display: block;
+
+    .navbar-brands {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navbar-logo-api {
+    height: 50px;
+  }
+
+  .navbar-right {
+    height: 100%;
+    display: block;
+
+    ul {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      li {
+        position: relative;
+        overflow: hidden;
+        justify-content: center;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 0 20px;
+  }
+}

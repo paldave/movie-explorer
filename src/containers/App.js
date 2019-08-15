@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchApiConfig } from '../actions/apiConfig';
 
+import Navbar from '../components/layout/Navbar';
 import Home from './Home';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Navbar />
           <Route exact path="/" component={ Home }/>
         </div>
       </BrowserRouter>
