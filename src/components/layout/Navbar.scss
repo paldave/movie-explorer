@@ -1,5 +1,5 @@
 .navbar {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
   padding: 0 80px;
@@ -19,15 +19,21 @@
     height: 100%;
     display: block;
 
+    
     .navbar-brands {
       height: 100%;
       display: flex;
       align-items: center;
-    }
-  }
 
-  .navbar-logo-api {
-    height: 50px;
+      .navbar-logo {
+        padding-right: 10px;
+        height: 50px;
+      }
+
+      .navbar-name {
+        font-size: 24px;
+      }
+    }
   }
 
   .navbar-right {
@@ -41,17 +47,53 @@
       margin: 0;
 
       li {
+        font-size: 20px;
         position: relative;
         overflow: hidden;
         justify-content: center;
       }
     }
   }
-
 }
+
+.slide-left {
+	-webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(-1000px);
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 @media (max-width: 1200px) {
   .navbar {
     padding: 0 20px;
+
+    .navbar-name {
+      display: none;
+    }
   }
 }
