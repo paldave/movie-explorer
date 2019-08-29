@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchApiConfig } from '../actions/apiConfig';
 
+import SplashScreen from '../components/layout/SplashScreen';
 import Navbar from '../components/layout/Navbar';
 import Home from './Home';
 
@@ -13,6 +14,10 @@ class App extends Component {
   }
 
   render() {
+    if (this.props.apiConfig.isInitializing) {
+      return <SplashScreen />;
+    }
+
     return (
       <BrowserRouter>
         <div className="App">
@@ -28,6 +33,10 @@ App.propTypes = {
   fetchApiConfig: PropTypes.func.isRequired
 };
 
+const mapStateToProps = (state) => ({
+  apiConfig: state.apiConfig
+});
+
 const actionCreators = { fetchApiConfig };
 
-export default connect(null, actionCreators)(App);
+export default connect(mapStateToProps, actionCreators)(App);
