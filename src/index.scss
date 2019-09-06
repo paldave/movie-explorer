@@ -1,3 +1,5 @@
+@import 'styles/variables';
+
 body {
   margin: 0;
   padding: 0;
@@ -7,14 +9,9 @@ body {
   //   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  margin: 0;
 
-  background-color: #121212;
-  color: #E1E1E1;
+  background-color: $main-background-color;
+  color: $white-high-color;
 }
-
-// code {
-//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-//     monospace;
-// }
-
-

@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0);
+  }
+  
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@mixin create-line($size, $time) {
+  width: $size;
+  height: $size;
+  animation: spin $time linear 0s infinite;
+  -webkit-animation: $time 12s linear 0s infinite;
+}
+
+.splash-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+
+  p {
+    font-size: 24px;
+  }
+
+  .loader-solar {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    .orbit {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $transparent-color-08dp;
+      border-radius: 50%;
+    }
+
+    .orbit-first {
+      @include create-line(165px, 12s);
+    }
+
+    .orbit-second {
+      @include create-line(120px, 7s);
+    }
+
+    .orbit-third {
+      @include create-line(90px, 3.5s);
+    }
+
+    .planet {
+      position: absolute;
+      top: -5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $white-high-color;
+    }
+
+    .planet-main {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: $pink-primary-color;
+    }
+  }
+}
+
+.splash-screen.fade {
+  transition: all 5s;
+  -webkit-transition: all 5s;
+  opacity: 0;
+}
