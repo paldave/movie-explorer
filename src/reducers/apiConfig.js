@@ -1,7 +1,12 @@
 import { GET_API_CONFIG } from '../constants';
 
 const initialState = {
-  isInitializing: true
+  isInitializing: true,
+  imageConfig: { 
+    availableSizes: {},
+    baseUrl: null
+  },
+  genres: {}
 };
 
 const apiConfig = (state = initialState, action) => {
@@ -9,8 +14,8 @@ const apiConfig = (state = initialState, action) => {
     case GET_API_CONFIG:
       return {
         ...state,
-        isInitializing: false,
-        ...action.payload
+        ...action.payload,
+        isInitializing: false
       };
     default:
       return state;
