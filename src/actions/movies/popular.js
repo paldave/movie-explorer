@@ -1,7 +1,7 @@
 import { API_REQUEST, GET_MOVIES_POPULAR } from '../../constants';
 
 const saveMoviesPopular = (payload) => ({
-  type: GET_MOVIES_NOW_PLAYING,
+  type: GET_MOVIES_POPULAR,
   payload
 });
 
