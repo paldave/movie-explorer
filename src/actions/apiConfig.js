@@ -5,7 +5,8 @@ const parseImagesObject = (payload) => {
   let { images } = payload;
 
   const availableSizes = {
-    [PROPORTION.THUMBNAIL]: images.poster_sizes[1] 
+    [PROPORTION.THUMBNAIL]: images.poster_sizes[1],
+    [PROPORTION.BACKDROP]: images.backdrop_sizes[2]
   }
   
   const baseUrl = images.secure_base_url;

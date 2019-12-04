@@ -1,0 +1,114 @@
+@import '../styles/variables';
+
+.backdrop-container {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 675px;
+
+  .backdrop-wrapper {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 675px;
+
+    .backdrop-image {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .backdrop-blur {
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: 0;
+        pointer-events: none;
+        width: 1200px;
+        top: 0;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        height: 675px;
+        background-repeat: no-repeat;
+        background: 
+          linear-gradient(
+            90deg, #121212 0, 
+            rgba(18, 18, 18, .985) 1%,
+            rgba(18, 18, 18, .945) 2.2%,
+            rgba(18, 18, 18, .883) 3.3%,
+            rgba(18, 18, 18, .803) 4.6%,
+            rgba(18, 18, 18, .710) 6%,
+            rgba(18, 18, 18, .609) 7.4%,
+            rgba(18, 18, 18, .503) 8.8%,
+            rgba(18, 18, 18, .397) 10.2%,
+            rgba(18, 18, 18, .295) 11.5%,
+            rgba(18, 18, 18, .202) 12.8%,
+            rgba(18, 18, 18, .122) 14%,
+            rgba(18, 18, 18, .058) 15%,
+            rgba(18, 18, 18, .016) 16%,
+            rgba(18, 18, 18,    0) 16.6%,
+            rgba(18, 18, 18,    0) 83.4%,
+            rgba(18, 18, 18, .016) 84%,
+            rgba(18, 18, 18, .058) 85%,
+            rgba(18, 18, 18, .122) 86%,
+            rgba(18, 18, 18, .202) 87.2%,
+            rgba(18, 18, 18, .295) 88.5%,
+            rgba(18, 18, 18, .397) 89.8%,
+            rgba(18, 18, 18, .503) 91.2%,
+            rgba(18, 18, 18, .609) 92.6%,
+            rgba(18, 18, 18, .710) 94%,
+            rgba(18, 18, 18, .803) 95.4%,
+            rgba(18, 18, 18, .883) 96.7%,
+            rgba(18, 18, 18, .945) 97.8%,
+            rgba(18, 18, 18, .985) 99%, 
+            #121212
+          ),
+          // linear-gradient(
+          //   0deg, #121212 0,
+          //   #121212 21.4%,
+          //   rgba(18, 18, 18, .985) 23.6%,
+          //   rgba(18, 18, 18, .945) 26.1%,
+          //   rgba(18, 18, 18, .883) 28.8%,
+          //   rgba(18, 18, 18, .803) 31.7%,
+          //   rgba(18, 18, 18, .710) 34.7%,
+          //   rgba(18, 18, 18, .609) 37.8%,
+          //   rgba(18, 18, 18, .503) 41%,
+          //   rgba(18, 18, 18, .397) 44%,
+          //   rgba(18, 18, 18, .295) 47%,
+          //   rgba(18, 18, 18, .202) 49.9%,
+          //   rgba(18, 18, 18, .122) 52.5%,
+          //   rgba(18, 18, 18, .058) 54.8%,
+          //   rgba(18, 18, 18, .016) 56.8%,
+          //   rgba(18, 18, 18,    0) 58.5%
+          // );
+          linear-gradient(
+            0deg, #121212 0,
+            #121212 1.4%,
+            rgba(18, 18, 18, .985) 3.6%,
+            rgba(18, 18, 18, .945) 6.1%,
+            rgba(18, 18, 18, .883) 8.8%,
+            rgba(18, 18, 18, .803) 11.7%,
+            rgba(18, 18, 18, .710) 14.7%,
+            rgba(18, 18, 18, .609) 17.8%,
+            rgba(18, 18, 18, .503) 21%,
+            rgba(18, 18, 18, .397) 24%,
+            rgba(18, 18, 18, .295) 27%,
+            rgba(18, 18, 18, .202) 29.9%,
+            rgba(18, 18, 18, .122) 32.5%,
+            rgba(18, 18, 18, .058) 34.8%,
+            rgba(18, 18, 18, .016) 36.8%,
+            rgba(18, 18, 18,    0) 38.5%
+          );
+      };
+    }
+  }
+}

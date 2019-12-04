@@ -1,8 +1,6 @@
 import { GET_MOVIES_POPULAR } from '../../constants';
 
-const initialState = {
-  results: []
-};
+const initialState = {};
 
 const moviesPopular = (state = initialState, action) => {
   switch(action.type) {

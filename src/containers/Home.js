@@ -1,32 +1,42 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchMovieNowPlaying } from '../actions/movies/nowPlaying';
+import { fetchMoviesPopular } from '../actions/movies/popular';
+import Backdrop from '../components/Backdrop';
 
 class Home extends Component {
+  static propTypes = {
+    fetchMoviesPopular: PropTypes.func.isRequired,
+  }
+
   componentDidMount() {
-    this.props.fetchMovieNowPlaying();
+    this.props.fetchMoviesPopular();
   }
 
   render() {
+    const { apiConfig, moviesPopular } = this.props;
+    
+    // TODO: Spinner
+    if (!moviesPopular.results) {
+      return <div />
+    }
+
     return (
-      <div>
-        <h1>Hello</h1>
-      </div>
+      <Backdrop
+        data={moviesPopular.results[0]}
+        imageConfig={apiConfig.imageConfig}
+      />
     )
   }
 }
 
-Home.propTypes = {
-  fetchMovieNowPlaying: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = (state) => ({
-  moviesNowPlaying: state.moviesNowPlaying
+  apiConfig: state.apiConfig,
+  moviesPopular: state.moviesPopular
 });
 
 const actionCreators = {
-  fetchMovieNowPlaying
+  fetchMoviesPopular
 };
 
 export default connect(mapStateToProps, actionCreators)(Home);

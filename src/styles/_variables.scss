@@ -1,20 +1,25 @@
-@import './functions';
+// Private function
+@function _get-color($transparency, $color: $main-background-color) {
+  @return rgba($color, $transparency);
+}
 
 $main-background-color: #121212;
 
 $pink-primary-color: #FF7597;
 $pink-secondary-color: #FF0266;
 
-$white-high-color: get-color(0.87);
-$white-med-color: get-color(0.6);
-$white-disabled-color: get-color(0.38);
+$white-color: #FFFFFF;
 
-$transparent-color-01dp: get-color(0.05);
-$transparent-color-02dp: get-color(0.07);
-$transparent-color-03dp: get-color(0.08);
-$transparent-color-04dp: get-color(0.09);
-$transparent-color-06dp: get-color(0.11);
-$transparent-color-08dp: get-color(0.12);
-$transparent-color-12dp: get-color(0.14);
-$transparent-color-16dp: get-color(0.15);
-$transparent-color-24dp: get-color(0.16);
+$white-high-color: _get-color(0.87, $white-color);
+$white-med-color: _get-color(0.6, $white-color);
+$white-disabled-color: _get-color(0.38, $white-color);
+
+$transparent-color-01dp: _get-color(0.05);
+$transparent-color-02dp: _get-color(0.07);
+$transparent-color-03dp: _get-color(0.08);
+$transparent-color-04dp: _get-color(0.09);
+$transparent-color-06dp: _get-color(0.11);
+$transparent-color-08dp: _get-color(0.12);
+$transparent-color-12dp: _get-color(0.14);
+$transparent-color-16dp: _get-color(0.15);
+$transparent-color-24dp: _get-color(0.16);
