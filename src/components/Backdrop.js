@@ -19,8 +19,6 @@ export default class Backdrop extends Component {
       backgroundImage: `url(${imageUrl})`
     }
 
-    console.log(imageUrl);
-
     return (
       <div className="backdrop-container">
         <div className="backdrop-wrapper">

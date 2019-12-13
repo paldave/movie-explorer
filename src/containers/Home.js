@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesPopular } from '../actions/movies/popular';
 import Backdrop from '../components/Backdrop';
+import './Home.scss';
 
 class Home extends Component {
   static propTypes = {
@@ -22,10 +23,19 @@ class Home extends Component {
     }
 
     return (
-      <Backdrop
-        data={moviesPopular.results[0]}
-        imageConfig={apiConfig.imageConfig}
-      />
+      <div className="home-container">
+        <Backdrop
+          data={moviesPopular.results[0]}
+          imageConfig={apiConfig.imageConfig}
+        />
+        <div className="body-container">
+          <div className="body-wrapper">
+            <div className="home-welcome">
+              <h1>Space is for everybody. Just like movies. <br/> Explore, review and share what you like. </h1>
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }
