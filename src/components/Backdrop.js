@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { PROPORTION, getUrl } from '../helpers/image';
 import './Backdrop.scss';
 
 export default class Backdrop extends Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+    imageConfig: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -18,7 +24,7 @@ export default class Backdrop extends Component {
       backgroundPosition: 'center 0px',
       backgroundImage: `url(${imageUrl})`
     }
-
+    
     return (
       <div className="backdrop-container">
         <div className="backdrop-wrapper">
