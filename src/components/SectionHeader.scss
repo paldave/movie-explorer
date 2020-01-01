@@ -1,0 +1,8 @@
+@import '../styles/variables';
+
+.section-header {
+  border-bottom: 0.5px solid $pink-primary-color;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 20px;
+}
