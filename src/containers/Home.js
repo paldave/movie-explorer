@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesPopular } from '../actions/movies/popular';
 import Backdrop from '../components/Backdrop';
+import SectionHeader from '../components/SectionHeader';
 import MovieList from '../components/movies/MovieList';
 import './Home.scss';
 
@@ -34,10 +35,18 @@ class Home extends Component {
             <div className="home-welcome">
               <h1>Space is for everybody. Just like movies. <br/> Explore, review and share what you like. </h1>
             </div>
-            <section id="popular">
+            <section id="popular-movies">
+              <SectionHeader
+                title='Popular movies'
+              />
               <MovieList
                 data={moviesPopular.results.slice(0, 6)}
                 apiConfig={apiConfig}
+              />
+            </section>
+            <section id="popular-reviews">
+              <SectionHeader
+                title='Popular reviews this week'
               />
             </section>
           </div>
