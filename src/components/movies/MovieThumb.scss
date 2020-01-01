@@ -1,0 +1,59 @@
+@import '../../styles/variables';
+
+.movie-card {
+  position: relative;
+
+  cursor: pointer;
+
+  .card-top img {
+    border-radius: 5px;
+    box-shadow: 0 3px 6px $transparent-color-01dp, 0 3px 6px $transparent-color-01dp;
+  }
+  
+  .card-bottom {
+    overflow: hidden;
+    min-width: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .card-meta {
+    opacity: 0;
+    height: 92%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: $transparent-color-hover;
+
+    transition: opacity .2s ease-in-out;
+    -webkit-transition: .2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    .card-meta-rating {
+      position: relative;
+      top: 2%;
+      left: 33%;
+
+      .vote-number {
+        padding-right: 2px;
+      }
+    }
+
+    .card-meta-details {
+      position: relative;
+      text-align: left;
+      top: 73%;
+      left: 5px;
+      bottom: 5px;
+
+      width: 95%;
+      overflow: hidden;
+      min-width: 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

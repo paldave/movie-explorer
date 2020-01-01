@@ -1,0 +1,15 @@
+.movie-list-content {
+  list-style: none;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 1rem;
+  justify-content: center;
+
+  .movie-list-content-item {
+    // padding: 1rem;
+    // flex-grow: 1;
+    // flex: 0 16%;
+  }
+}
