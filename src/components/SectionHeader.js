@@ -4,10 +4,8 @@ import './SectionHeader.scss';
 
 export default function SectionHeader(props) {
   return (
-    <div>
-      <div className="section-header">
-        <span className="section-header-title">{props.title}</span>
-      </div>
+    <div className="section-header">
+      <span className="section-header-title">{props.title}</span>
     </div>
   )
 }
