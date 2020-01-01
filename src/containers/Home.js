@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesPopular } from '../actions/movies/popular';
 import Backdrop from '../components/Backdrop';
+import MovieList from '../components/movies/MovieList';
 import './Home.scss';
 
 class Home extends Component {
@@ -33,6 +34,12 @@ class Home extends Component {
             <div className="home-welcome">
               <h1>Space is for everybody. Just like movies. <br/> Explore, review and share what you like. </h1>
             </div>
+            <section id="popular">
+              <MovieList
+                data={moviesPopular.results.slice(0, 6)}
+                apiConfig={apiConfig}
+              />
+            </section>
           </div>
         </div>
       </div>
