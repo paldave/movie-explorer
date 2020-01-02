@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesPopular } from '../actions/movies/popular';
 import { fetchMoviesUpcoming } from '../actions/movies/upcoming';
+import { fetchTvPopular } from '../actions/tv/popular';
 import Backdrop from '../components/Backdrop';
 import SectionHeader from '../components/SectionHeader';
 import MovieList from '../components/movies/MovieList';
@@ -16,10 +17,11 @@ class Home extends Component {
   componentDidMount() {
     this.props.fetchMoviesPopular();
     this.props.fetchMoviesUpcoming();
+    this.props.fetchTvPopular();
   }
 
   render() {
-    const { apiConfig, moviesPopular, moviesUpcoming } = this.props;
+    const { apiConfig, moviesPopular, moviesUpcoming, tvPopular } = this.props;
     
     // TODO: Spinner
     // Depend on GET moviesPopular to show Backdrop
@@ -48,6 +50,16 @@ class Home extends Component {
                 itemsPerRow={6}
               />
             </section>
+            <section id="tv-incoming">
+              <SectionHeader
+                title='Popular Series'
+              />
+              <MovieList
+                data={tvPopular.results}
+                apiConfig={apiConfig}
+                itemsPerRow={6}
+              />
+            </section>
             <section id="movies-incoming">
               <SectionHeader
                 title='Upcoming movies'
@@ -68,12 +80,14 @@ class Home extends Component {
 const mapStateToProps = (state) => ({
   apiConfig: state.apiConfig,
   moviesPopular: state.moviesPopular,
-  moviesUpcoming: state.moviesUpcoming
+  moviesUpcoming: state.moviesUpcoming,
+  tvPopular: state.tvPopular
 });
 
 const actionCreators = {
   fetchMoviesPopular,
-  fetchMoviesUpcoming
+  fetchMoviesUpcoming,
+  fetchTvPopular
 };
 
 export default connect(mapStateToProps, actionCreators)(Home);

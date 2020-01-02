@@ -44,9 +44,9 @@ export default class MovieThumb extends Component {
                 <span><FaStar/></span>
               </div>
               <div className="card-meta-details">
-                <span>{data.title}</span>
+                <span>{data.title || data.name}</span>
                 <br/>
-                <span>{getYear(data.release_date)}</span>
+                <span>{getYear(data.release_date || data.first_air_date)}</span>
               </div>
             </div>
           }

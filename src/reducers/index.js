@@ -4,11 +4,13 @@ import apiConfig from './apiConfig';
 import moviesPopular from './movies/popular';
 import moviesNowPlaying from './movies/nowPlaying';
 import moviesUpcoming from './movies/upcoming';
+import tvPopular from './tv/popular';
 
 export default combineReducers({
   userInterface,
   apiConfig,
   moviesPopular,
   moviesNowPlaying,
-  moviesUpcoming
+  moviesUpcoming,
+  tvPopular
 });
