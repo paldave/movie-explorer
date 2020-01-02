@@ -1,20 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import MovieThumb from './MovieThumb';
+import SimpleLoader from '../layout/SimpleLoader';
 import './MovieList.scss';
 
 export default class MovieList extends Component {
   static propTypes = {
-    data: PropTypes.array.isRequired,
+    data: PropTypes.array,
     apiConfig: PropTypes.object.isRequired
   }
 
   static defaultProps = {
-    itemsPerRow: 'auto'
+    itemsPerRow: 'auto' // TODO: Consider automatic seletion depending on screen
   }
 
   render() {
-    const { data, apiConfig, itemsPerRow } = this.props;
+    const { apiConfig, itemsPerRow } = this.props;
+    let { data } = this.props;
+
+    if (!data) {
+      return (<SimpleLoader/>);
+    }
+
+    if (itemsPerRow != 'auto') {
+      data = data.slice(0, itemsPerRow);
+    }
 
     return (
       <div className="movie-list">
