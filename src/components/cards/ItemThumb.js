@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { PROPORTION, getUrl } from '../../helpers/image';
 import { getYear } from '../../helpers/movie';
 import { FaStar } from "react-icons/fa";
-import './MovieThumb.scss';
+import './ItemThumb.scss';
 
-export default class MovieThumb extends Component {
+export default class ItemThumb extends Component {
   static propTypes = {
     data: PropTypes.object.isRequired,
     apiConfig: PropTypes.object.isRequired
@@ -35,7 +35,7 @@ export default class MovieThumb extends Component {
     const { imageConfig, genres } = this.props.apiConfig;
     
     return (
-      <div className="movie-card movie-card-thumb">
+      <div className="item-card item-card-thumb">
         <div className="card-top">
           {showMeta &&
             <div className="card-meta">

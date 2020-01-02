@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import MovieThumb from './MovieThumb';
+import ItemThumb from './ItemThumb';
 import SimpleLoader from '../layout/SimpleLoader';
-import './MovieList.scss';
+import './ItemList.scss';
 
-export default class MovieList extends Component {
+export default class ItemList extends Component {
   static propTypes = {
     data: PropTypes.array,
     apiConfig: PropTypes.object.isRequired
@@ -27,11 +27,11 @@ export default class MovieList extends Component {
     }
 
     return (
-      <div className="movie-list">
-        <ul className="movie-list-content">
+      <div className="item-list">
+        <ul className="item-list-content">
           {data.map((item) => (
-            <li className="movie-list-content-item" key={item.id}>
-              <MovieThumb 
+            <li className="item-list-content-item" key={item.id}>
+              <ItemThumb 
                 data={item} 
                 apiConfig={apiConfig}
                 showMeta={true}

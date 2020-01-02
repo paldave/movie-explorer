@@ -6,7 +6,7 @@ import { fetchMoviesUpcoming } from '../actions/movies/upcoming';
 import { fetchTvPopular } from '../actions/tv/popular';
 import Backdrop from '../components/Backdrop';
 import SectionHeader from '../components/SectionHeader';
-import MovieList from '../components/movies/MovieList';
+import ItemList from '../components/cards/ItemList';
 import './Home.scss';
 
 class Home extends Component {
@@ -44,7 +44,7 @@ class Home extends Component {
               <SectionHeader
                 title='Popular movies'
               />
-              <MovieList
+              <ItemList
                 data={moviesPopular.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
@@ -54,7 +54,7 @@ class Home extends Component {
               <SectionHeader
                 title='Popular Series'
               />
-              <MovieList
+              <ItemList
                 data={tvPopular.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
@@ -64,7 +64,7 @@ class Home extends Component {
               <SectionHeader
                 title='Upcoming movies'
               />
-              <MovieList
+              <ItemList
                 data={moviesUpcoming.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
