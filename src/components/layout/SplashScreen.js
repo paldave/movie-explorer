@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './SplashScreen.scss';
 
-export default class Navbar extends Component {
+export default class SplashScreen extends Component {
   render() {
     return (
       <div className="splash-screen">
