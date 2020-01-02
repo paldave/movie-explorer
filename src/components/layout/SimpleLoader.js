@@ -1,8 +1,10 @@
 import React from 'react'
 import './SimpleLoader.scss'
 
-export default function SimpleLoader() {
+const SimpleLoader = () => {
   return (
     <div className="ring-spinner"/>
   )
 }
+
+export default SimpleLoader;
