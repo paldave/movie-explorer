@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.ring-spinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  position: relative;
+
+  left: 50%;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 4px solid $transparent-color-08dp;
+    border-color: $transparent-color-08dp transparent;
+    animation: ring-spinner 1.2s linear infinite;  
+  }
+}
+
+@keyframes ring-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
