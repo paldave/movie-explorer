@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesPopular } from '../actions/movies/popular';
+import { fetchMoviesUpcoming } from '../actions/movies/upcoming';
 import Backdrop from '../components/Backdrop';
 import SectionHeader from '../components/SectionHeader';
 import MovieList from '../components/movies/MovieList';
@@ -14,12 +15,14 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.fetchMoviesPopular();
+    this.props.fetchMoviesUpcoming();
   }
 
   render() {
-    const { apiConfig, moviesPopular } = this.props;
+    const { apiConfig, moviesPopular, moviesUpcoming } = this.props;
     
     // TODO: Spinner
+    // Depend on GET moviesPopular to show Backdrop
     if (!moviesPopular.results) {
       return <div />
     }
@@ -35,18 +38,24 @@ class Home extends Component {
             <div className="home-welcome">
               <h1>Space is for everybody. Just like movies. <br/> Explore, review and share what you like. </h1>
             </div>
-            <section id="popular-movies">
+            <section id="movies-popular">
               <SectionHeader
                 title='Popular movies'
               />
               <MovieList
-                data={moviesPopular.results.slice(0, 6)}
+                data={moviesPopular.results}
                 apiConfig={apiConfig}
+                itemsPerRow={6}
               />
             </section>
-            <section id="popular-reviews">
+            <section id="movies-incoming">
               <SectionHeader
-                title='Popular reviews this week'
+                title='Upcoming movies'
+              />
+              <MovieList
+                data={moviesUpcoming.results}
+                apiConfig={apiConfig}
+                itemsPerRow={6}
               />
             </section>
           </div>
@@ -58,11 +67,13 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
   apiConfig: state.apiConfig,
-  moviesPopular: state.moviesPopular
+  moviesPopular: state.moviesPopular,
+  moviesUpcoming: state.moviesUpcoming
 });
 
 const actionCreators = {
-  fetchMoviesPopular
+  fetchMoviesPopular,
+  fetchMoviesUpcoming
 };
 
 export default connect(mapStateToProps, actionCreators)(Home);
