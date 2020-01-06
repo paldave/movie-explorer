@@ -18,7 +18,7 @@
     transform: translateX(-50%);
     width: 1200px;
     height: 675px;
-
+    
     .backdrop-image {
       width: 100%;
       height: 100%;
@@ -41,10 +41,10 @@
         height: 675px;
         background-repeat: no-repeat;
         background: 
-          linear-gradient(
-            90deg, $main-background-color 0, 
-            rgba($main-background-color, .985) 1%,
-            rgba($main-background-color, .945) 2.2%,
+        linear-gradient(
+          90deg, $main-background-color 0, 
+          rgba($main-background-color, .985) 1%,
+          rgba($main-background-color, .945) 2.2%,
             rgba($main-background-color, .883) 3.3%,
             rgba($main-background-color, .803) 4.6%,
             rgba($main-background-color, .710) 6%,
@@ -72,26 +72,54 @@
             rgba($main-background-color, .945) 97.8%,
             rgba($main-background-color, .985) 99%, 
             $main-background-color
-          ),
-          linear-gradient(
+            ),
+            linear-gradient(
             0deg, $main-background-color 0,
-            $main-background-color 11.4%,
-            rgba($main-background-color, .985) 13.6%,
-            rgba($main-background-color, .945) 16.1%,
-            rgba($main-background-color, .883) 18.8%,
-            rgba($main-background-color, .803) 21.7%,
-            rgba($main-background-color, .710) 24.7%,
-            rgba($main-background-color, .609) 27.8%,
-            rgba($main-background-color, .503) 31%,
-            rgba($main-background-color, .397) 34%,
-            rgba($main-background-color, .295) 37%,
-            rgba($main-background-color, .202) 39.9%,
-            rgba($main-background-color, .122) 42.5%,
-            rgba($main-background-color, .058) 44.8%,
-            rgba($main-background-color, .016) 46.8%,
-            rgba($main-background-color,    0) 48.5%
-          );
+            $main-background-color 21.4%,
+            rgba($main-background-color, .985) 23.6%,
+            rgba($main-background-color, .945) 26.1%,
+            rgba($main-background-color, .883) 28.8%,
+            rgba($main-background-color, .803) 31.7%,
+            rgba($main-background-color, .710) 34.7%,
+            rgba($main-background-color, .609) 37.8%,
+            rgba($main-background-color, .503) 41%,
+            rgba($main-background-color, .397) 44%,
+            rgba($main-background-color, .295) 47%,
+            rgba($main-background-color, .202) 49.9%,
+            rgba($main-background-color, .122) 52.5%,
+            rgba($main-background-color, .058) 54.8%,
+            rgba($main-background-color, .016) 56.8%,
+            rgba($main-background-color,    0) 58.5%
+            );
       };
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .backdrop-container {
+    height: 0;
+    padding-top: 60%;
+
+    .backdrop-wrapper {
+      padding-top: 60%;
+      width: 100%;
+      height: 0;
+      left: 0;
+      transform: none;
+
+      .backdrop-image {
+        position: absolute;
+        background-size: 100% auto;
+        top: 0;
+        left: 0;
+      }
+
+      .backdrop-blur:before {
+        padding-top: 60%;
+        height: 0;
+        left: 0;
+      }
     }
   }
 }

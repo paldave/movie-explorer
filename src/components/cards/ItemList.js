@@ -7,7 +7,8 @@ import './ItemList.scss';
 export default class ItemList extends Component {
   static propTypes = {
     data: PropTypes.array,
-    apiConfig: PropTypes.object.isRequired
+    apiConfig: PropTypes.object.isRequired,
+    itemType: PropTypes.string.isRequired
   }
 
   static defaultProps = {
@@ -15,14 +16,14 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const { apiConfig, itemsPerRow } = this.props;
+    const { apiConfig, itemsPerRow, itemType } = this.props;
     let { data } = this.props;
 
     if (!data) {
       return (<SimpleLoader/>);
     }
 
-    if (itemsPerRow != 'auto') {
+    if (itemsPerRow !== 'auto') {
       data = data.slice(0, itemsPerRow);
     }
 
@@ -35,6 +36,7 @@ export default class ItemList extends Component {
                 data={item} 
                 apiConfig={apiConfig}
                 showMeta={true}
+                itemType={itemType}
               />
             </li>
           ))}

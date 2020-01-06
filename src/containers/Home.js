@@ -48,6 +48,7 @@ class Home extends Component {
                 data={moviesPopular.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
+                itemType='movies'
               />
             </section>
             <section id="tv-incoming">
@@ -58,6 +59,7 @@ class Home extends Component {
                 data={tvPopular.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
+                itemType='tv'
               />
             </section>
             <section id="movies-incoming">
@@ -68,6 +70,7 @@ class Home extends Component {
                 data={moviesUpcoming.results}
                 apiConfig={apiConfig}
                 itemsPerRow={6}
+                itemType='movies'
               />
             </section>
           </div>

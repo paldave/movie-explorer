@@ -10,3 +10,9 @@
 section {
   padding-top: 40px;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .home-welcome h1 {
+    font-size: 24px;
+  }
+}
