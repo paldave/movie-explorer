@@ -12,19 +12,19 @@ export default class ItemList extends Component {
   }
 
   static defaultProps = {
-    itemsPerRow: 'auto' // TODO: Consider automatic seletion depending on screen
+    itemsToShow: 'auto' // TODO: Consider automatic seletion depending on screen
   }
 
   render() {
-    const { apiConfig, itemsPerRow, itemType } = this.props;
+    const { apiConfig, itemsToShow, itemType } = this.props;
     let { data } = this.props;
 
     if (!data) {
       return (<SimpleLoader/>);
     }
 
-    if (itemsPerRow !== 'auto') {
-      data = data.slice(0, itemsPerRow);
+    if (itemsToShow !== 'auto') {
+      data = data.slice(0, itemsToShow);
     }
 
     return (

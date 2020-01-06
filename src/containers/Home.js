@@ -47,7 +47,7 @@ class Home extends Component {
               <ItemList
                 data={moviesPopular.results}
                 apiConfig={apiConfig}
-                itemsPerRow={6}
+                itemsToShow={6}
                 itemType='movies'
               />
             </section>
@@ -58,7 +58,7 @@ class Home extends Component {
               <ItemList
                 data={tvPopular.results}
                 apiConfig={apiConfig}
-                itemsPerRow={6}
+                itemsToShow={6}
                 itemType='tv'
               />
             </section>
@@ -69,7 +69,7 @@ class Home extends Component {
               <ItemList
                 data={moviesUpcoming.results}
                 apiConfig={apiConfig}
-                itemsPerRow={6}
+                itemsToShow={6}
                 itemType='movies'
               />
             </section>
