@@ -21,9 +21,10 @@ export const apiMiddleware = ({ dispatch }) => next => action => {
     return;
   }
 
-  const { url, onSuccess, method = 'GET' } = action.payload;
+  const { url, onSuccess, method = 'GET', data = {} } = action.payload;
+  const dataProperty = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 
-  axiosClient.request({ url, method })
+  axiosClient.request({ url, method, [dataProperty]: data })
     .then(({ data }) => {
       dispatch(onSuccess(data));
       dispatch(apiFinish());
