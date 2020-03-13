@@ -14,6 +14,8 @@ $white-high-color: _get-color(0.87, $white-color);
 $white-med-color: _get-color(0.6, $white-color);
 $white-disabled-color: _get-color(0.38, $white-color);
 
+$modal-overlay-color: _get-color(0.92);
+
 $transparent-color-01dp: _get-color(0.05, $white-color);
 $transparent-color-02dp: _get-color(0.07, $white-color);
 $transparent-color-03dp: _get-color(0.08, $white-color);
@@ -24,4 +26,5 @@ $transparent-color-12dp: _get-color(0.14, $white-color);
 $transparent-color-16dp: _get-color(0.15, $white-color);
 $transparent-color-24dp: _get-color(0.16, $white-color);
 
-$transparent-color-hover: _get-color(0.85)
+$transparent-color-hover: _get-color(0.85);
+$transparent-color-hover-button: _get-color(0.02, $white-color);

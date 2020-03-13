@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+.review-list {
+  .no-review {
+    text-align: center;
+  }
+
+  .review-list-content {
+    list-style: none;
+    padding: 0;
+  
+    .review-list-content-item {
+      padding: 20px 0 20px 0;
+      border-bottom: 0.5px solid $transparent-color-24dp;
+
+      &:first-child {
+        padding-top: 0;
+      }
+  
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}

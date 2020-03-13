@@ -20,8 +20,10 @@
     height: 675px;
     
     .backdrop-image {
+      position: absolute;
       width: 100%;
       height: 100%;
+      top: -50px;
     }
     
     // TODO: Reconsider better usage

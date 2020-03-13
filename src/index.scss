@@ -1,4 +1,5 @@
 @import 'styles/variables';
+@import 'styles/modal';
 
 body {
   margin: 0;
@@ -15,16 +16,24 @@ body {
   color: $white-high-color;
 }
 
+a:hover, a:visited, a:link, a:active, a:any-link {
+  color: $white-high-color !important;
+  text-decoration: none !important;
+
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 .body-container {
   position: relative;
-  max-width: 60vw;
+  max-width: 70vw;
   margin: auto;
-  padding-top: 400px;
+  padding-top: 350px;
 }
 
 @media only screen and (max-width: 1024px) {
   .body-container {
-    max-width: 85vw;
+    max-width: 90vw;
   }
 }
 

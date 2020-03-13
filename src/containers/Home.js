@@ -7,6 +7,7 @@ import { fetchTvPopular } from '../actions/tv/popular';
 import Backdrop from '../components/Backdrop';
 import SectionHeader from '../components/SectionHeader';
 import ItemList from '../components/cards/ItemList';
+import { ITEM_TYPE } from '../helpers/itemType';
 import './Home.scss';
 
 class Home extends Component {
@@ -15,9 +16,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchMoviesPopular();
-    this.props.fetchMoviesUpcoming();
-    this.props.fetchTvPopular();
+    if (
+      !this.props.moviesPopular.isLoaded && 
+      !this.props.moviesUpcoming.isLoaded && 
+      !this.props.tvPopular.isLoaded
+    ) {
+      this.props.fetchMoviesPopular();
+      this.props.fetchMoviesUpcoming();
+      this.props.fetchTvPopular();
+    }
   }
 
   render() {
@@ -25,14 +32,18 @@ class Home extends Component {
     
     // TODO: Spinner
     // Depend on GET moviesPopular to show Backdrop
-    if (!moviesPopular.results) {
+    if (
+      !moviesPopular.results ||
+      !moviesUpcoming.results ||
+      !tvPopular.results
+    ) {
       return <div />
     }
 
     return (
       <div className="home-container">
         <Backdrop
-          data={moviesPopular.results[0]}
+          backdropPath={moviesPopular.results[0].backdrop_path}
           imageConfig={apiConfig.imageConfig}
         />
         <div className="body-container">
@@ -45,10 +56,9 @@ class Home extends Component {
                 title='Popular movies'
               />
               <ItemList
-                data={moviesPopular.results}
+                data={moviesPopular.results.slice(0, 6)}
                 apiConfig={apiConfig}
-                itemsToShow={6}
-                itemType='movies'
+                itemType={ITEM_TYPE.MOVIES}
               />
             </section>
             <section id="tv-incoming">
@@ -56,10 +66,9 @@ class Home extends Component {
                 title='Popular Series'
               />
               <ItemList
-                data={tvPopular.results}
+                data={tvPopular.results.slice(0, 6)}
                 apiConfig={apiConfig}
-                itemsToShow={6}
-                itemType='tv'
+                itemType={ITEM_TYPE.TV}
               />
             </section>
             <section id="movies-incoming">
@@ -67,10 +76,9 @@ class Home extends Component {
                 title='Upcoming movies'
               />
               <ItemList
-                data={moviesUpcoming.results}
+                data={moviesUpcoming.results.slice(0, 6)}
                 apiConfig={apiConfig}
-                itemsToShow={6}
-                itemType='movies'
+                itemType={ITEM_TYPE.MOVIES}
               />
             </section>
           </div>

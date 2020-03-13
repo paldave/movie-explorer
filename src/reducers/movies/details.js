@@ -1,12 +1,14 @@
-import { GET_MOVIES_UPCOMING } from '../../constants';
+import { 
+  GET_MOVIES_DETAILS, 
+} from '../../constants';
 
 const initialState = {
   isLoaded: false
 };
 
-const moviesUpcoming = (state = initialState, action) => {
+const moviesDetails = (state = initialState, action) => {
   switch(action.type) {
-    case GET_MOVIES_UPCOMING:
+    case GET_MOVIES_DETAILS:
       return {
         ...state,
         ...action.payload,
@@ -17,4 +19,4 @@ const moviesUpcoming = (state = initialState, action) => {
   }
 }
 
-export default moviesUpcoming;
+export default moviesDetails;

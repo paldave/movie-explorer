@@ -1,0 +1,144 @@
+@import '../../styles/variables';
+
+section {
+  padding-top: 0;
+}
+
+.item-details-wrapper {
+  padding-top: 10px;
+  
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  .poster img {
+    width: 230px;
+    border-radius: 5px;
+  }
+
+  .item-details-main {
+    section {
+      padding-bottom: 20px;
+    }
+
+    .action-bar {
+      padding-bottom: 5px;
+
+      button {
+        margin-left: 0;
+      }
+    }
+
+    .header {
+      .title {
+        font-size: 32px;
+        padding-bottom: 5px;
+        color: $pink-secondary-color;
+        color: $pink-primary-color;
+    
+        .year {
+          position: relative;
+          top: -2px;
+          font-size: 24px;
+        }
+      }
+  
+      .director {
+        margin: 5px 0 5px 0;
+      }
+    }
+  }
+
+  .item-details-info {
+    div .header {
+      padding-bottom: 0;
+      margin: 15px 0 10px 0;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    .genres {
+      button {
+        margin: 0 15px 10px 0;
+      }
+    }
+  }
+
+  .item-details-cast {
+    img {
+      min-height: 231px;
+      max-width: 154px;
+      object-fit: cover;
+    }
+  }
+
+  .item-details-cast, .item-details-reviews, .item-details-recommendations {
+    grid-column: 1 / 4;
+  }
+}
+
+.white-med-color {
+  color: $white-med-color;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .item-details-wrapper {
+    grid-row-gap: 0px;
+    
+    $_posterWidth: 130px;
+    $_columnGapWidth: 10px;
+    
+    grid-column-gap: $_columnGapWidth;
+    grid-auto-rows: auto;
+
+    div, p, span, button, .section-header-title {
+      font-size: 14px;
+    }
+
+    .poster img {
+      width: $_posterWidth;
+    }
+
+    .item-details-main {
+      grid-column: 2 / 4;
+
+      .overview {
+        // Move overview text outside the grid column
+        margin-left: -$_posterWidth - $_columnGapWidth;
+        padding-top: 14px;
+        padding-bottom: 0;
+      }
+
+      .header {
+        .title {
+          font-size: 22px;
+          max-height: 20px;
+
+          .year {
+            font-size: 17px;
+          }
+        }
+
+        .director {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .item-details-info {
+      grid-row: 2;
+      grid-column: 1 / 4;
+    }
+
+    .item-details-cast {
+      img {
+        min-height: 0;
+      }
+    }
+  }
+  
+}
+  

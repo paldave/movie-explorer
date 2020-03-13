@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.button {
+  height: 36px;
+  background-color: transparent;
+  cursor: pointer;
+
+  border-color: $pink-secondary-color;
+  border-style: solid;
+  padding: 0 15px 0 15px;
+  border-width: 1px;
+  border-radius: 4px;
+
+  -webkit-tap-highlight-color: $transparent-color-hover-button;
+
+  .label {
+    // color: $pink-secondary-color;
+    color: $white-high-color;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: .875rem;
+  }
+
+  &:hover, &:active, &:focus {
+    background-color: $transparent-color-hover-button;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

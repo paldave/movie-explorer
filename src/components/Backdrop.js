@@ -5,7 +5,7 @@ import './Backdrop.scss';
 
 export default class Backdrop extends Component {
   static propTypes = {
-    data: PropTypes.object.isRequired,
+    backdropPath: PropTypes.string,
     imageConfig: PropTypes.object.isRequired
   }
 
@@ -16,9 +16,9 @@ export default class Backdrop extends Component {
   }
 
   render() {
-    const { data, imageConfig } = this.props;
+    const { backdropPath, imageConfig } = this.props;
     const size = imageConfig.availableSizes[this.SIZE];
-    const imageUrl = getUrl(size, imageConfig.baseUrl, data.backdrop_path);
+    const imageUrl = getUrl(size, imageConfig.baseUrl, backdropPath);
 
     const imageStyle = { 
       backgroundPosition: 'center 0px',

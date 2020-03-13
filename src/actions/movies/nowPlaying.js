@@ -1,14 +1,14 @@
 import { API_REQUEST, GET_MOVIES_NOW_PLAYING } from '../../constants';
 
-const saveMovieNowPlaying = (payload) => ({
+const saveMoviesNowPlaying = (payload) => ({
   type: GET_MOVIES_NOW_PLAYING,
   payload
 });
 
-export const fetchMovieNowPlaying = () => ({
+export const fetchMoviesNowPlaying = () => ({
   type: API_REQUEST,
   payload: {
     url: '/movie/now_playing',
-    onSuccess: saveMovieNowPlaying
+    onSuccess: saveMoviesNowPlaying
   }
 });

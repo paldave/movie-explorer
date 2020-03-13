@@ -1,0 +1,31 @@
+.modal-player {
+  position: absolute;
+  width: 80vw;
+  height: 80vh;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+
+  .react-player {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    div {
+      position: inherit;
+    }
+  }
+
+  button {
+    position: relative;
+    float: right;
+    bottom: 37px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

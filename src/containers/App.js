@@ -6,7 +6,10 @@ import { fetchApiConfig } from '../actions/apiConfig';
 
 import SplashScreen from '../components/layout/SplashScreen';
 import Navbar from '../components/layout/Navbar';
+import ScrollToTop from '../helpers/scroll';
 import Home from './Home';
+import MoviesDetails from './details/Movies';
+import TvDetails from './details/Tv';
 
 class App extends Component {
   componentDidMount() {
@@ -21,8 +24,14 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <ScrollToTop />
           <Navbar />
-          <Route exact path="/" component={ Home }/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/movies/details/:id" component={BaseDetailsHoc(MoviesDetails)} /> */}
+            <Route exact path="/movies/details/:id" component={MoviesDetails} />
+            <Route exact path="/tv/details/:id" component={TvDetails} />
+          </Switch>
         </div>
       </BrowserRouter>
     );

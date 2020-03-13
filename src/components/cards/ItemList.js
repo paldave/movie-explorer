@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import ItemThumb from './ItemThumb';
+import ItemCast from './ItemCast';
 import SimpleLoader from '../layout/SimpleLoader';
+import { ITEM_TYPE } from '../../helpers/itemType';
 import './ItemList.scss';
 
 export default class ItemList extends Component {
@@ -12,19 +14,33 @@ export default class ItemList extends Component {
   }
 
   static defaultProps = {
-    itemsToShow: 'auto' // TODO: Consider automatic seletion depending on screen
+    showMeta: true
+  }
+
+  renderThumbnail(item, itemType, apiConfig) {
+    if (ITEM_TYPE.CAST === itemType) {
+      return (
+        <ItemCast
+          data={item}
+          apiConfig={apiConfig}
+        />
+      )
+    }
+
+    return (
+      <ItemThumb 
+        data={item} 
+        apiConfig={apiConfig}
+        itemType={itemType}
+      /> 
+    );
   }
 
   render() {
-    const { apiConfig, itemsToShow, itemType } = this.props;
-    let { data } = this.props;
-
+    const { data, apiConfig, itemType, showMeta } = this.props;
+    
     if (!data) {
       return (<SimpleLoader/>);
-    }
-
-    if (itemsToShow !== 'auto') {
-      data = data.slice(0, itemsToShow);
     }
 
     return (
@@ -32,12 +48,7 @@ export default class ItemList extends Component {
         <ul className="item-list-content">
           {data.map((item) => (
             <li className="item-list-content-item" key={item.id}>
-              <ItemThumb 
-                data={item} 
-                apiConfig={apiConfig}
-                showMeta={true}
-                itemType={itemType}
-              />
+              {this.renderThumbnail(item, itemType, apiConfig)}
             </li>
           ))}
         </ul>
