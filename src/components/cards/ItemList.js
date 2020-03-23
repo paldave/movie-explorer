@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import ItemThumb from './ItemThumb';
 import ItemCast from './ItemCast';
 import SimpleLoader from '../layout/SimpleLoader';
+import Button from '../layout/Button';
 import { ITEM_TYPE } from '../../helpers/itemType';
+import { IoIosArrowDropright } from 'react-icons/io';
 import './ItemList.scss';
 
 export default class ItemList extends Component {
@@ -13,12 +15,8 @@ export default class ItemList extends Component {
     itemType: PropTypes.string.isRequired
   }
 
-  static defaultProps = {
-    showMeta: true
-  }
-
   renderThumbnail(item, itemType, apiConfig) {
-    if (ITEM_TYPE.CAST === itemType) {
+    if (itemType === ITEM_TYPE.CAST) {
       return (
         <ItemCast
           data={item}
@@ -36,11 +34,22 @@ export default class ItemList extends Component {
     );
   }
 
+  // TODO: Link to
+  viewMore = () => {
+    console.log('>>> transfer');
+  }
+
   render() {
-    const { data, apiConfig, itemType, showMeta } = this.props;
+    const { data, apiConfig, itemType } = this.props;
     
     if (!data) {
       return (<SimpleLoader/>);
+    }
+
+    if (data.length === 0 && [ITEM_TYPE.MOVIES, ITEM_TYPE.TV].includes(itemType)) {
+      return (
+        <p className="no-available">There are no available items.</p>
+      )  
     }
 
     return (
@@ -51,6 +60,14 @@ export default class ItemList extends Component {
               {this.renderThumbnail(item, itemType, apiConfig)}
             </li>
           ))}
+          { data
+            ? <span className="load-more" onClick={this.viewMore}>
+                <IoIosArrowDropright/>
+                <br/>
+                View more
+              </span>
+            : null
+          }
         </ul>
       </div>
     )

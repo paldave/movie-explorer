@@ -24,6 +24,7 @@
       width: 100%;
       height: 100%;
       top: -50px;
+      background-size: 100% auto;
     }
     
     // TODO: Reconsider better usage
@@ -121,6 +122,22 @@
         padding-top: 60%;
         height: 0;
         left: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  $_height: 400px;
+  
+  .backdrop-container {
+    height: $_height;
+
+    .backdrop-wrapper {
+      height: $_height;
+
+      .backdrop-blur:before {
+        height: $_height;
       }
     }
   }

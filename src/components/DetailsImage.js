@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { PROPORTION, getUrl } from '../helpers/image';
 
-export default class Poster extends Component {
+export default class DetailsImage extends Component {
   static propTypes = {
-    posterPath: PropTypes.string,
+    imagePath: PropTypes.string,
     imageConfig: PropTypes.object.isRequired
   }
 
@@ -15,12 +15,12 @@ export default class Poster extends Component {
   }
 
   render() {
-    const { posterPath, imageConfig } = this.props;
+    const { imagePath, imageConfig } = this.props;
     const size = imageConfig.availableSizes[this.SIZE];
-    const imageUrl = getUrl(size, imageConfig.baseUrl, posterPath);
+    const imageUrl = getUrl(size, imageConfig.baseUrl, imagePath);
     
     return (
-      <img src={imageUrl} className="poster-image"/>
+      <img src={imageUrl} className="details-image"/>
     )
   }
 }

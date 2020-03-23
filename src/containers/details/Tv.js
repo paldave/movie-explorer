@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchTvDetails } from '../../actions/tv/details';
 import BaseHoc from './BaseHoc';
 import Backdrop from '../../components/Backdrop';
-import Poster from '../../components/Poster';
+import DetailsImage from '../../components/DetailsImage';
 import SectionHeader from '../../components/SectionHeader';
 import ItemList from '../../components/cards/ItemList';
 import ReviewList from '../../components/details/ReviewList';
@@ -12,7 +12,6 @@ import Button from '../../components/layout/Button';
 import ActionBar from '../../components/details/ActionBar';
 import { ITEM_TYPE } from '../../helpers/itemType';
 import { getYear } from '../../helpers/movie';
-import './Base.scss';
 
 class TvDetails extends Component {
   static propTypes = {
@@ -89,8 +88,8 @@ class TvDetails extends Component {
         <div className="body-container">
           <div className="item-details-wrapper">
             <section className="poster">
-              <Poster 
-                posterPath={data.poster_path}
+              <DetailsImage 
+                imagePath={data.poster_path}
                 imageConfig={apiConfig.imageConfig}
               />
             </section>
@@ -117,7 +116,7 @@ class TvDetails extends Component {
                 title='Cast'
               />
               <ItemList
-                data={data.credits.cast.slice(0, 6)}
+                data={data.credits.cast.slice(0, 12)}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.CAST}
               />
@@ -135,7 +134,7 @@ class TvDetails extends Component {
                 title='Recommendations'
               />
               <ItemList
-                data={data.recommendations.results.slice(0, 6)}
+                data={data.recommendations.results.slice(0, 12)}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.TV}
               />

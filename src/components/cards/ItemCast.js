@@ -31,15 +31,17 @@ export default class ItemCast extends Component {
     const { imageConfig } = this.props.apiConfig;
 
     return (
-      <div className="item-card item-card-thumb">
-        <div className="card-top">
-          <div className="card-meta"/>
-          {this.renderImage(imageConfig, data.profile_path)}
-          <div className="card-meta-character">
-            <span>{data.name}</span> <br/>
-            <span className="white-med-color">{data.character}</span>
+      <div className="item-card item-card-thumb item-card-cast">
+        <Link to ={`/person-details/${data.id}`}>
+          <div className="card-top">
+            <div className="card-meta"/>
+            {this.renderImage(imageConfig, data.profile_path)}
+            <div className="card-meta-character">
+              <span className="actor">{data.name}</span> <br/>
+              <span className="white-med-color character-name">{data.character}</span>
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
     )
   }

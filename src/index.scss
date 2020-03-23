@@ -1,7 +1,9 @@
 @import 'styles/variables';
 @import 'styles/modal';
+@import 'styles/scrollbar';
 
 body {
+  
   margin: 0;
   padding: 0;
   // font-family: 'Roboto Condensed', sans-serif;
@@ -11,7 +13,7 @@ body {
   //   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  
   background-color: $main-background-color;
   color: $white-high-color;
 }
@@ -19,7 +21,7 @@ body {
 a:hover, a:visited, a:link, a:active, a:any-link {
   color: $white-high-color !important;
   text-decoration: none !important;
-
+  
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -40,5 +42,11 @@ a:hover, a:visited, a:link, a:active, a:any-link {
 @media (min-width: 320px) and (max-width: 480px) {
   .body-container {
     padding-top: 100px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+  .body-container {
+    padding-top: 200px;
   }
 }

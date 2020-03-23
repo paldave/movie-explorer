@@ -1,11 +1,43 @@
+@import '../../styles/variables.scss';
+
+.no-available {
+  text-align: center;
+}
+
 .item-list-content {
   list-style: none;
-  padding: 0;
+  padding-left: 0;
+  text-align: center;
 
-  display: grid;
-  // grid-template-columns: repeat(6, auto);
-  grid-template-columns: repeat(auto-fit, minmax(154px, 154px));
-  grid-gap: 10px;
-  justify-content: center;
-  // align-items: center;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: center;
+  
+  .item-list-content-item {
+    flex: 0 0 auto;
+    padding: 0 5px;
+    width: 154px;
+    max-height: 271px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .load-more {
+    max-width: 50px;
+    cursor: pointer;
+    padding-left: 5px;
+    padding-right: 15px;
+
+    svg {
+      font-size: 40px;
+      color: $pink-primary-color;
+    }
+
+    &:hover, &:active, &:focus {
+      outline: none;
+    }
+  }
 }

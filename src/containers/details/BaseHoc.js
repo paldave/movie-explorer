@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SplashScreen from '../../components/layout/SplashScreen';
+import './Base.scss';
 
 export default (WrappedContainer, fetchData) => {
   class BaseHoc extends Component {
