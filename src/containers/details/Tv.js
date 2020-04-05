@@ -95,7 +95,7 @@ class TvDetails extends Component {
             </section>
             <section className="item-details-main">
               <section className="header">
-                <span className="title">
+                <span className="main-title">
                   {data.name} 
                   <br/>
                   <span className="year white-med-color">({getYear(data.first_air_date)})</span>

@@ -10,8 +10,13 @@ import ScrollToTop from '../helpers/scroll';
 import Home from './Home';
 import MoviesDetails from './details/Movies';
 import TvDetails from './details/Tv';
+import Person from './Person';
 
 class App extends Component {
+  static propTypes = {
+    fetchApiConfig: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
     this.props.fetchApiConfig();
   }
@@ -28,9 +33,9 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            {/* <Route exact path="/movies/details/:id" component={BaseDetailsHoc(MoviesDetails)} /> */}
             <Route exact path="/movies/details/:id" component={MoviesDetails} />
             <Route exact path="/tv/details/:id" component={TvDetails} />
+            <Route exact path="/person-details/:id" component={Person} />
           </Switch>
         </div>
       </BrowserRouter>
@@ -38,14 +43,8 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  fetchApiConfig: PropTypes.func.isRequired
-};
-
 const mapStateToProps = (state) => ({
   apiConfig: state.apiConfig
 });
 
-const actionCreators = { fetchApiConfig };
-
-export default connect(mapStateToProps, actionCreators)(App);
+export default connect(mapStateToProps, { fetchApiConfig })(App);

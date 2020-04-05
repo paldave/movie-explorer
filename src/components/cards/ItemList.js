@@ -15,6 +15,10 @@ export default class ItemList extends Component {
     itemType: PropTypes.string.isRequired
   }
 
+  static defaultProps = {
+    viewMore: true
+  }
+
   renderThumbnail(item, itemType, apiConfig) {
     if (itemType === ITEM_TYPE.CAST) {
       return (
@@ -39,6 +43,20 @@ export default class ItemList extends Component {
     console.log('>>> transfer');
   }
 
+  renderViewMore() {
+    if (!this.props.data || !this.props.viewMore) {
+      return null;
+    }
+
+    return (
+      <span className="load-more" onClick={this.viewMore}>
+        <IoIosArrowDropright/>
+        <br/>
+        View more
+      </span>
+    );
+  }
+
   render() {
     const { data, apiConfig, itemType } = this.props;
     
@@ -60,14 +78,7 @@ export default class ItemList extends Component {
               {this.renderThumbnail(item, itemType, apiConfig)}
             </li>
           ))}
-          { data
-            ? <span className="load-more" onClick={this.viewMore}>
-                <IoIosArrowDropright/>
-                <br/>
-                View more
-              </span>
-            : null
-          }
+          {this.renderViewMore()}
         </ul>
       </div>
     )

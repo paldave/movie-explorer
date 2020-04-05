@@ -1,0 +1,132 @@
+@import '../styles/variables';
+
+.person-details-wrapper {
+  padding-top: 30px;
+  
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-auto-rows: auto;
+
+  .poster img {
+    width: 230px;
+    border-radius: 5px;
+  }
+
+  .person-details-main {
+    .title {
+      .social-links {
+        display: inline-block;
+        margin: 5px 0 0 -5px;
+        font-size: 26px;
+  
+        a {
+          margin: 0 5px;
+  
+          &:hover, &:active, &:focus {
+            outline: none;
+  
+            svg {
+              color: $transparent-color-hover-icon;
+            }
+          }
+        }
+      }
+    }
+  
+    .additional {
+      ul {
+        display: flex;
+        padding: 0;
+        list-style-type: none;
+  
+        li {
+          margin: 0 20px 0 0;
+        }
+      }
+    }
+  }
+
+  .person-biography {
+    grid-column: 2 / 4;
+
+    p {
+      font-size: 22px;
+    }
+
+    .content {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+    }
+
+    .extended {
+      display: block;
+    }
+
+    .extend-button {
+      cursor: pointer;
+      color: $pink-primary-color;
+      margin-top: 2px;
+
+      svg {
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    .hide {
+      display: none;
+    }
+  }
+
+  .person-details-known, .person-details-credits {
+    grid-column: 1 / 4;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .person-details-wrapper {
+    $_posterWidth: 200px;
+    $_columnGapWidth: 10px;
+    
+    grid-column-gap: $_columnGapWidth;
+
+    .poster {
+      text-align: center;
+      grid-column: 1 / 3;
+    }
+
+    .person-details-main {
+      grid-column: 1 / 3;
+
+      .main-title {
+        font-size: 24px;
+      }
+
+      .social-links {
+        padding: 5px 0 0 0;
+        margin-left: -5px;
+      }
+
+      .additional {
+        font-size: 14px;
+  
+        ul {
+          display: inline-block;
+  
+          li {
+            margin: 5px 0 0 0;
+          }
+        }
+      }
+    }
+
+    .poster img {
+      width: $_posterWidth;
+    }
+  }
+}

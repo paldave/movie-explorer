@@ -14,3 +14,7 @@ class ScrollToTop extends React.Component {
 }
 
 export default withRouter(ScrollToTop);
+
+export const isOverflown = ({ clientWidth, clientHeight, scrollWidth, scrollHeight }) => {
+  return scrollHeight > clientHeight || scrollWidth > clientWidth;
+}

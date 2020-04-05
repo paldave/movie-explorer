@@ -89,7 +89,7 @@ class MoviesDetails extends Component {
             </section>
             <section className="item-details-main">
               <section className="header">
-                <span className="title">
+                <span className="main-title">
                   {data.title} 
                   <br/>
                   <span className="year white-med-color">({getYear(data.release_date)})</span>

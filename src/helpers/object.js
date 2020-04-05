@@ -1,0 +1,1 @@
+export const hasData = (object) => Object.keys(object).length > 0;

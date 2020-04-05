@@ -31,11 +31,8 @@ section {
     }
 
     .header {
-      .title {
-        font-size: 32px;
+      .main-title {
         padding-bottom: 5px;
-        color: $pink-secondary-color;
-        color: $pink-primary-color;
     
         .year {
           position: relative;
@@ -113,7 +110,7 @@ section {
       }
 
       .header {
-        .title {
+        .main-title {
           font-size: 22px;
           max-height: 20px;
 

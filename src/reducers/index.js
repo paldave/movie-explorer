@@ -7,6 +7,7 @@ import moviesUpcoming from './movies/upcoming';
 import moviesDetails from './movies/details';
 import tvPopular from './tv/popular';
 import tvDetails from './tv/details';
+import personDetails from './personDetails';
 
 export default combineReducers({
   userInterface,
@@ -16,5 +17,6 @@ export default combineReducers({
   moviesUpcoming,
   moviesDetails,
   tvPopular,
-  tvDetails
+  tvDetails,
+  personDetails
 });

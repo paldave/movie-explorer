@@ -33,6 +33,11 @@ a:hover, a:visited, a:link, a:active, a:any-link {
   padding-top: 350px;
 }
 
+.main-title {
+  font-size: 32px;
+  color: $pink-primary-color;
+} 
+
 @media only screen and (max-width: 1024px) {
   .body-container {
     max-width: 90vw;
