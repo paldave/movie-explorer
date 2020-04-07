@@ -56,7 +56,7 @@ class Home extends Component {
                 title='Popular movies'
               />
               <ItemList
-                data={moviesPopular.results.slice(0, 12)}
+                data={moviesPopular.results}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.MOVIES}
               />
@@ -66,7 +66,7 @@ class Home extends Component {
                 title='Popular Series'
               />
               <ItemList
-                data={tvPopular.results.slice(0, 6)}
+                data={tvPopular.results}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.TV}
               />
@@ -76,7 +76,7 @@ class Home extends Component {
                 title='Upcoming movies'
               />
               <ItemList
-                data={moviesUpcoming.results.slice(0, 12)}
+                data={moviesUpcoming.results}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.MOVIES}
               />

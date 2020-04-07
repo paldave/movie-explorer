@@ -14,11 +14,21 @@
   -webkit-tap-highlight-color: $transparent-color-hover-button;
 
   .label {
-    // color: $pink-secondary-color;
     color: $white-high-color;
     text-transform: uppercase;
     font-weight: 500;
     font-size: .875rem;
+  }
+
+  &.disabled {
+    cursor: auto;
+    pointer-events: none;
+
+    border-color: $white-disabled-color;
+
+    .label {
+      color: $white-disabled-color;
+    }
   }
 
   &:hover, &:active, &:focus {

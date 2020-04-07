@@ -51,7 +51,11 @@ class MoviesDetails extends Component {
           <p>
             Runtime:
             <br/>
-            {data.runtime} min
+            {data.runtime ? (
+              <>{data.runtime} min</>
+            ) : (
+              <>-</>
+            )}
           </p>
           <p>
             Budget:
@@ -70,8 +74,6 @@ class MoviesDetails extends Component {
 
   render() {
     const { apiConfig, data } = this.props;
-
-    console.log(this);
 
     return (
       <div className="item-details-container">
@@ -113,7 +115,7 @@ class MoviesDetails extends Component {
                 title='Cast'
               />
               <ItemList
-                data={data.credits.cast.slice(0, 12)}
+                data={data.credits.cast}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.CAST}
               />
@@ -131,9 +133,10 @@ class MoviesDetails extends Component {
                 title='Recommendations'
               />
               <ItemList
-                data={data.recommendations.results.slice(0, 12)}
+                data={data.recommendations.results}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.MOVIES}
+                viewMore={false}
               />
             </section>
           </div>

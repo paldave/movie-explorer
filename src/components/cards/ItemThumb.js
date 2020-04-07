@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ImageUnavailable from '../layout/ImageUnavailable';
 import { PROPORTION, getUrl } from '../../helpers/image';
 import { getYear } from '../../helpers/movie';
 import { FaStar } from 'react-icons/fa';
@@ -24,6 +25,10 @@ export default class ItemThumb extends Component {
   }
 
   renderImage(imageConfig, path) {
+    if (!path) {
+      return <ImageUnavailable/>;
+    }
+
     const size = imageConfig.availableSizes[this.SIZE];
     const url = getUrl(size, imageConfig.baseUrl, path);
 
@@ -35,13 +40,13 @@ export default class ItemThumb extends Component {
   render() {
     const { data, showMeta, itemType } = this.props;
     const { imageConfig } = this.props.apiConfig;
-    
+
     return (
       <div className="item-card item-card-thumb">
         <Link to={`/${itemType}/details/${data.id}`}>
           <div className="card-top">
             {showMeta &&
-              <div className="card-meta">
+              <div className={`card-meta ${!data.poster_path ? 'show-title' : ''}`}>
                 <div className="card-meta-rating">
                   <span className="vote-number">{data.vote_average}</span>
                   <span><FaStar/></span>

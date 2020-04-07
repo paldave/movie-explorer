@@ -9,9 +9,18 @@
   grid-row-gap: 10px;
   grid-auto-rows: auto;
 
-  .poster img {
+  @mixin img-basic {
     width: 230px;
     border-radius: 5px;
+  }
+
+  .poster img {
+    @include img-basic();
+  }
+
+  .no-image {
+    @include img-basic();
+    height: 345px;
   }
 
   .person-details-main {
@@ -91,6 +100,7 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .person-details-wrapper {
     $_posterWidth: 200px;
+    $_posterHeight: 300px;
     $_columnGapWidth: 10px;
     
     grid-column-gap: $_columnGapWidth;
@@ -98,6 +108,17 @@
     .poster {
       text-align: center;
       grid-column: 1 / 3;
+
+      img {
+        width: $_posterWidth;
+      }
+    }
+
+    .no-image {
+      width: $_posterWidth;
+      height: $_posterHeight;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .person-details-main {
@@ -123,10 +144,6 @@
           }
         }
       }
-    }
-
-    .poster img {
-      width: $_posterWidth;
     }
   }
 }

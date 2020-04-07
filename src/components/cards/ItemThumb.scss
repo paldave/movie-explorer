@@ -1,13 +1,22 @@
 @import '../../styles/variables';
 
+@mixin enable-transition {
+  transition: opacity .2s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+}
+
 .item-card {
   position: relative;
 
   cursor: pointer;
 
-  .card-top img {
+  -webkit-tap-highlight-color: transparent;
+
+  .card-top img, .no-image {
     border-radius: 5px;
     width: 100%;
+    width: 154px;
+    height: 231px;
   }
   
   .card-bottom {
@@ -25,8 +34,25 @@
     text-align: center;
     background-color: $transparent-color-hover;
 
-    transition: opacity .2s ease-in-out;
-    -webkit-transition: .2s ease-in-out;
+    @include enable-transition;
+
+    &.show-title {
+      opacity: 1;
+      background-color: transparent;
+
+      .card-meta-rating {
+        opacity: 0;
+      }
+
+      &:hover {
+        background-color: $transparent-color-hover;
+
+        .card-meta-rating {
+          @include enable-transition;
+          opacity: 1;
+        }
+      }
+    }
 
     &:hover {
       opacity: 1;

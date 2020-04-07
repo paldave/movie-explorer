@@ -16,7 +16,8 @@ export default class ItemList extends Component {
   }
 
   static defaultProps = {
-    viewMore: true
+    viewMore: true,
+    itemsPerRow: 12
   }
 
   renderThumbnail(item, itemType, apiConfig) {
@@ -44,7 +45,11 @@ export default class ItemList extends Component {
   }
 
   renderViewMore() {
-    if (!this.props.data || !this.props.viewMore) {
+    if (
+      !this.props.data || 
+      !this.props.viewMore ||
+      this.props.data.length < this.props.itemsPerRow
+    ) {
       return null;
     }
 
@@ -58,7 +63,7 @@ export default class ItemList extends Component {
   }
 
   render() {
-    const { data, apiConfig, itemType } = this.props;
+    const { data, apiConfig, itemType, itemsPerRow } = this.props;
     
     if (!data) {
       return (<SimpleLoader/>);
@@ -73,7 +78,7 @@ export default class ItemList extends Component {
     return (
       <div className="item-list">
         <ul className="item-list-content">
-          {data.map((item) => (
+          {data.slice(0, itemsPerRow).map((item) => (
             <li className="item-list-content-item" key={item.id}>
               {this.renderThumbnail(item, itemType, apiConfig)}
             </li>

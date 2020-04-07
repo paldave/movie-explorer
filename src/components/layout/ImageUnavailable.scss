@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.no-image {
+  background-color: $transparent-color-01dp;
+
+  svg {
+    display: table-cell;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: inherit;
+  }
+}

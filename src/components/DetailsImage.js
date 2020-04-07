@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ImageUnavailable from './layout/ImageUnavailable';
 import { PROPORTION, getUrl } from '../helpers/image';
 
 export default class DetailsImage extends Component {
@@ -16,6 +17,11 @@ export default class DetailsImage extends Component {
 
   render() {
     const { imagePath, imageConfig } = this.props;
+
+    if (!imagePath) {
+      return <ImageUnavailable/>;
+    }
+
     const size = imageConfig.availableSizes[this.SIZE];
     const imageUrl = getUrl(size, imageConfig.baseUrl, imagePath);
     

@@ -69,15 +69,13 @@ class TvDetails extends Component {
 
     return (
       <p className="director">
-        <span className="white-med-color">Created by</span> {authors}
+        <span className="white-med-color">Created by</span> {authors || '-'}
       </p>
     );
   }
 
   render() {
     const { apiConfig, data } = this.props;
-
-    console.log(this);
 
     return (
       <div className="item-details-container">
@@ -116,9 +114,10 @@ class TvDetails extends Component {
                 title='Cast'
               />
               <ItemList
-                data={data.credits.cast.slice(0, 12)}
+                data={data.credits.cast}
                 apiConfig={apiConfig}
                 itemType={ITEM_TYPE.CAST}
+                viewMore={true}
               />
             </section>
             <section className="item-details-reviews">

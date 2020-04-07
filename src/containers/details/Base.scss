@@ -12,9 +12,20 @@ section {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 
-  .poster img {
-    width: 230px;
-    border-radius: 5px;
+  .poster {
+    @mixin img-basic {
+      width: 230px;
+      border-radius: 5px;
+    }
+
+    img {
+      @include img-basic();
+    }
+    
+    .no-image {
+      @include img-basic();
+      height: 345px;
+    }
   }
 
   .item-details-main {
@@ -70,6 +81,12 @@ section {
       max-width: 154px;
       object-fit: cover;
     }
+
+    .no-image {
+      height: 231px;
+      width: 154px;
+      margin-bottom: 3px;
+    }
   }
 
   .item-details-cast, .item-details-reviews, .item-details-recommendations {
@@ -86,6 +103,7 @@ section {
     grid-row-gap: 0px;
     
     $_posterWidth: 130px;
+    $_posterHeight: 195px;
     $_columnGapWidth: 10px;
     
     grid-column-gap: $_columnGapWidth;
@@ -95,8 +113,15 @@ section {
       font-size: 14px;
     }
 
-    .poster img {
-      width: $_posterWidth;
+    .poster {
+      img {
+        width: $_posterWidth;
+      }
+
+      .no-image {
+        width: $_posterWidth;
+        height: $_posterHeight;
+      }
     }
 
     .item-details-main {

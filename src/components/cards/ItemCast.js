@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ImageUnavailable from '../layout/ImageUnavailable';
 import { PROPORTION, getUrl } from '../../helpers/image';
 import './ItemThumb.scss';
 import './ItemCast.scss';
@@ -18,6 +19,10 @@ export default class ItemCast extends Component {
   }
 
   renderImage(imageConfig, path) {
+    if (!path) {
+      return <ImageUnavailable/>;
+    }
+
     const size = imageConfig.availableSizes[this.SIZE];
     const url = getUrl(size, imageConfig.baseUrl, path);
 

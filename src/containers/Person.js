@@ -44,8 +44,8 @@ class Person extends Component {
     }
 
     if (
-      this.biographyDiv.current && 
       !this.state.biographyExtended &&
+      this.biographyDiv.current && 
       !isOverflown(this.biographyDiv.current)
     ) {
       this.biographyExtendButton.current.classList.add('hide');
@@ -106,7 +106,14 @@ class Person extends Component {
 
   renderBiography() {
     if (!this.props.data.biography) {
-      return null;
+      return (
+        <section className="person-biography">
+          <p>Biography</p>
+          <div className="content">
+            Sorry, biography is unavailable at this time.
+          </div>
+        </section>
+      );
     }
 
     let extendButton = (

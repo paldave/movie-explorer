@@ -9,6 +9,12 @@
   width: 100%;
   height: 675px;
 
+  &.no-image {
+    position: relative;
+    height: 0;
+    margin-bottom: -330px;
+  }
+
   .backdrop-wrapper {
     position: absolute;
     z-index: 0;

@@ -23,6 +23,14 @@ export default class ActionBar extends Component {
   renderTrailer() {
     const { videos } = this.props.data;
 
+    if (videos.length === 0) {
+      return (
+        <p className="trailer">
+          <Button label="Trailer unavailable" disabled={true}/>  
+        </p>
+      )
+    }
+
     return (
       <p className="trailer">
         <Button label="Play trailer" onClick={this.showPlayer}/>
@@ -41,12 +49,10 @@ export default class ActionBar extends Component {
     return (
       <section className="action-bar">
         <div className="rating">
-          User rating: <span className="vote-number">{data.vote_average}</span>
+          User rating: <span className="vote-number">{data.vote_average || '-'}</span>
           <span><FaStar/></span>
         </div>
-        { data.videos.length > 0 && (
-          this.renderTrailer()
-        )}
+        {this.renderTrailer()}
       </section>
     )
   }
