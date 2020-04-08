@@ -54,6 +54,10 @@ section {
   
       .director {
         margin: 5px 0 5px 0;
+        
+        > a:not(:last-child) span:after {
+          content: ', '
+        }
       }
     }
   }

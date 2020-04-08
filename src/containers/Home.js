@@ -7,7 +7,6 @@ import { fetchTvPopular } from '../actions/tv/popular';
 import Backdrop from '../components/Backdrop';
 import SectionHeader from '../components/SectionHeader';
 import ItemList from '../components/cards/ItemList';
-import { ITEM_TYPE } from '../helpers/itemType';
 import './Home.scss';
 
 class Home extends Component {
@@ -58,7 +57,6 @@ class Home extends Component {
               <ItemList
                 data={moviesPopular.results}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.MOVIES}
               />
             </section>
             <section id="tv-incoming">
@@ -68,7 +66,6 @@ class Home extends Component {
               <ItemList
                 data={tvPopular.results}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.TV}
               />
             </section>
             <section id="movies-incoming">
@@ -78,7 +75,6 @@ class Home extends Component {
               <ItemList
                 data={moviesUpcoming.results}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.MOVIES}
               />
             </section>
           </div>

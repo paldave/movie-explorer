@@ -27,7 +27,7 @@ export default class ItemCast extends Component {
     const url = getUrl(size, imageConfig.baseUrl, path);
 
     return (
-      <img src={url} />
+      <img src={url} alt=""/>
     );
   }
 
@@ -37,7 +37,7 @@ export default class ItemCast extends Component {
 
     return (
       <div className="item-card item-card-thumb item-card-cast">
-        <Link to ={`/person-details/${data.id}`}>
+        <Link to={`/person-details/${data.id}`}>
           <div className="card-top">
             <div className="card-meta"/>
             {this.renderImage(imageConfig, data.profile_path)}

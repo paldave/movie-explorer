@@ -11,16 +11,19 @@
 
   @mixin img-basic {
     width: 230px;
+    height: 345px;
     border-radius: 5px;
   }
 
-  .poster img {
-    @include img-basic();
-  }
+  .poster {
+    img {
+      @include img-basic();  
+    }
 
-  .no-image {
-    @include img-basic();
-    height: 345px;
+    .no-image {
+      @include img-basic();
+      margin-bottom: 5px;
+    }
   }
 
   .person-details-main {
@@ -111,14 +114,15 @@
 
       img {
         width: $_posterWidth;
+        height: $_posterHeight;
       }
-    }
 
-    .no-image {
-      width: $_posterWidth;
-      height: $_posterHeight;
-      margin-left: auto;
-      margin-right: auto;
+      .no-image {
+        width: $_posterWidth;
+        height: $_posterHeight;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .person-details-main {

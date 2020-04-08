@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import Button from '../layout/Button';
 import ShowMoreText from 'react-show-more-text';
 import './ReviewItem.scss';
 

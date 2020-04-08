@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchTvDetails } from '../../actions/tv/details';
+import { Link } from 'react-router-dom';
 import BaseHoc from './BaseHoc';
 import Backdrop from '../../components/Backdrop';
 import DetailsImage from '../../components/DetailsImage';
@@ -10,7 +11,6 @@ import ItemList from '../../components/cards/ItemList';
 import ReviewList from '../../components/details/ReviewList';
 import Button from '../../components/layout/Button';
 import ActionBar from '../../components/details/ActionBar';
-import { ITEM_TYPE } from '../../helpers/itemType';
 import { getYear } from '../../helpers/movie';
 
 class TvDetails extends Component {
@@ -57,7 +57,7 @@ class TvDetails extends Component {
           <p>
             Episode run time:
             <br/>
-            {data.episode_run_time[0]} min
+            {data.episode_run_time[0] ? `${data.episode_run_time[0]} min` : '-'}
           </p>
         </div>
       </section>
@@ -65,11 +65,24 @@ class TvDetails extends Component {
   }
 
   renderCreatedBy() {
-    const authors = this.props.data.created_by.map((author) => author.name).join(', ');
+    const authors = this.props.data.created_by;
 
     return (
       <p className="director">
-        <span className="white-med-color">Created by</span> {authors || '-'}
+        <span className="white-med-color">Created by </span>
+        {authors.length > 0 ? (
+          <>
+            {authors.map((author) => (
+              <Link key={author.id} to={`/person-details/${author.id}`}>
+                <span className="name">{author.name}</span>
+              </Link>
+            ))}
+          </>
+        ) : (
+          <>
+            <span>-</span>
+          </>
+        )}
       </p>
     );
   }
@@ -96,7 +109,7 @@ class TvDetails extends Component {
                 <span className="main-title">
                   {data.name} 
                   <br/>
-                  <span className="year white-med-color">({getYear(data.first_air_date)})</span>
+                  <span className="year white-med-color">({getYear(data.first_air_date) || '-'})</span>
                 </span>
                 <br/>
                 {this.renderCreatedBy()}
@@ -116,7 +129,6 @@ class TvDetails extends Component {
               <ItemList
                 data={data.credits.cast}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.CAST}
                 viewMore={true}
               />
             </section>
@@ -135,7 +147,7 @@ class TvDetails extends Component {
               <ItemList
                 data={data.recommendations.results.slice(0, 12)}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.TV}
+                viewMore={false}
               />
             </section>
           </div>

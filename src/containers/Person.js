@@ -7,7 +7,6 @@ import DetailsImage from '../components/DetailsImage';
 import SectionHeader from '../components/SectionHeader';
 import ItemList from '../components/cards/ItemList';
 import CreditsTable from '../components/CreditsTable';
-import { ITEM_TYPE } from '../helpers/itemType';
 import { isOverflown } from '../helpers/scroll';
 import { 
   FaFacebook, 
@@ -39,10 +38,6 @@ class Person extends Component {
   }
 
   componentDidUpdate() {
-    const isOverflown = ({ clientWidth, clientHeight, scrollWidth, scrollHeight }) => {
-      return scrollHeight > clientHeight || scrollWidth > clientWidth;
-    }
-
     if (
       !this.state.biographyExtended &&
       this.biographyDiv.current && 
@@ -183,7 +178,6 @@ class Person extends Component {
             <ItemList
               data={data.most_known_for}
               apiConfig={apiConfig}
-              itemType={ITEM_TYPE.MOVIES}
               viewMore={false}
             />
           </section>

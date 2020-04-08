@@ -10,7 +10,6 @@ import ItemList from '../../components/cards/ItemList';
 import ReviewList from '../../components/details/ReviewList';
 import Button from '../../components/layout/Button';
 import ActionBar from '../../components/details/ActionBar';
-import { ITEM_TYPE } from '../../helpers/itemType';
 import { 
   getYear, 
   getDirector, 
@@ -94,10 +93,15 @@ class MoviesDetails extends Component {
                 <span className="main-title">
                   {data.title} 
                   <br/>
-                  <span className="year white-med-color">({getYear(data.release_date)})</span>
+                  <span className="year white-med-color">({getYear(data.release_date) || '-'})</span>
                 </span>
                 <br/>
-                <p className="director"><span className="white-med-color">Directed by</span> {getDirector(data.credits.crew).name}</p>
+                <p className="director">
+                  <span className="white-med-color">Directed by </span> 
+                  <span className="name">
+                    {getDirector(data.credits.crew).name}
+                  </span>
+                </p>
               </section>
               <ActionBar
                 data={data}
@@ -117,7 +121,6 @@ class MoviesDetails extends Component {
               <ItemList
                 data={data.credits.cast}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.CAST}
               />
             </section>
             <section className="item-details-reviews">
@@ -135,7 +138,6 @@ class MoviesDetails extends Component {
               <ItemList
                 data={data.recommendations.results}
                 apiConfig={apiConfig}
-                itemType={ITEM_TYPE.MOVIES}
                 viewMore={false}
               />
             </section>

@@ -26,7 +26,7 @@ export default class DetailsImage extends Component {
     const imageUrl = getUrl(size, imageConfig.baseUrl, imagePath);
     
     return (
-      <img src={imageUrl} className="details-image"/>
+      <img src={imageUrl} className="details-image" alt=""/>
     )
   }
 }

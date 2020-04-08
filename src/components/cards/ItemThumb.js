@@ -33,7 +33,7 @@ export default class ItemThumb extends Component {
     const url = getUrl(size, imageConfig.baseUrl, path);
 
     return (
-      <img src={url} />
+      <img src={url} alt=""/>
     );
   }
 

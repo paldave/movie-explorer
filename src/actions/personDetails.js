@@ -30,6 +30,7 @@ const _parseItemCredits = (data, dateKey) => {
     // Loop through sorted items and create hash;
     data[dataType].forEach((item) => {
       const year = getYear(item[dateKey]) || 0;
+      const yearIsEmpty = year === 0;
 
       if (!parsedHash.hasOwnProperty(dataType)) {
         parsedHash[dataType] = {};
@@ -40,12 +41,21 @@ const _parseItemCredits = (data, dateKey) => {
       }
 
       let arrayToPush = parsedHash[dataType][year];
-      let arrayLastElement = arrayToPush[arrayToPush.length - 1];
-  
-      if (arrayLastElement && arrayLastElement.id === item.id) {
+      let arrayLastElement;
+
+      if (yearIsEmpty) {
+        arrayLastElement = arrayToPush.find((lastItem) => lastItem.id === item.id);
+      } else {
+        arrayLastElement = arrayToPush[arrayToPush.length - 1];
+      }
+      
+      if (
+        (yearIsEmpty && arrayLastElement) || 
+        (arrayLastElement && arrayLastElement.id === item.id)
+      ) {
         (arrayLastElement.extras = []).push(item);
       } else {
-        parsedHash[dataType][year].push(item);
+        arrayToPush.push(item);
       }
 
     });
