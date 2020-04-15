@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import ItemThumb from './ItemThumb';
 import ItemCast from './ItemCast';
 import SimpleLoader from '../layout/SimpleLoader';
@@ -10,7 +11,9 @@ import './ItemList.scss';
 export default class ItemList extends Component {
   static propTypes = {
     data: PropTypes.array,
-    apiConfig: PropTypes.object.isRequired
+    apiConfig: PropTypes.object.isRequired,
+    viewMore: PropTypes.bool,
+    viewMoreLink: PropTypes.string
   }
 
   static defaultProps = {
@@ -48,11 +51,6 @@ export default class ItemList extends Component {
     );
   }
 
-  // TODO: Link to
-  viewMore = () => {
-    console.log('>>> transfer');
-  }
-
   renderViewMore() {
     if (
       !this.props.data || 
@@ -63,10 +61,12 @@ export default class ItemList extends Component {
     }
 
     return (
-      <span className="load-more" onClick={this.viewMore}>
-        <IoIosArrowDropright/>
-        <br/>
-        View more
+      <span className="load-more">
+        <Link to={this.props.viewMoreLink}>
+          <IoIosArrowDropright/>
+          <br/>
+          View more
+        </Link>
       </span>
     );
   }

@@ -75,6 +75,8 @@ class MoviesDetails extends Component {
   render() {
     const { apiConfig, data } = this.props;
     
+    const linkToCast = `${this.props.location.pathname}/full-cast`;
+
     return (
       <div className="item-details-container">
         <Backdrop
@@ -113,10 +115,13 @@ class MoviesDetails extends Component {
             <section className="item-details-cast">
               <SectionHeader
                 title='Cast'
+                linkName='View full Cast & Crew'
+                linkTo={linkToCast}
               />
               <ItemList
                 data={data.credits.cast}
                 apiConfig={apiConfig}
+                viewMoreLink={linkToCast}
               />
             </section>
             <section className="item-details-reviews">
