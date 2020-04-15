@@ -10,6 +10,7 @@ import ItemList from '../../components/cards/ItemList';
 import ReviewList from '../../components/details/ReviewList';
 import Button from '../../components/layout/Button';
 import ActionBar from '../../components/details/ActionBar';
+import Directors from '../../components/details/Director';
 import { 
   getYear, 
   getDirector, 
@@ -73,7 +74,7 @@ class MoviesDetails extends Component {
 
   render() {
     const { apiConfig, data } = this.props;
-
+    
     return (
       <div className="item-details-container">
         <Backdrop
@@ -96,12 +97,7 @@ class MoviesDetails extends Component {
                   <span className="year white-med-color">({getYear(data.release_date) || '-'})</span>
                 </span>
                 <br/>
-                <p className="director">
-                  <span className="white-med-color">Directed by </span> 
-                  <span className="name">
-                    {getDirector(data.credits.crew).name}
-                  </span>
-                </p>
+                <Directors data={getDirector(data.credits.crew)} label="Directed by"/>
               </section>
               <ActionBar
                 data={data}

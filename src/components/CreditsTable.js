@@ -32,18 +32,16 @@ class CreditsTable extends Component {
   renderSelectionButtons() {
     return (
       <div className="credits-buttons">
-        {hasData(this.props.movieCredits) && (
-          <Button label="Movies"
-            className="test" 
-            onClick={(event) => this.changeCredits('movieCredits', event)}
-          />
-        )}
-        {hasData(this.props.tvCredits) && (
-          <Button 
-            label="Series" 
-            onClick={(event) => this.changeCredits('tvCredits', event)}
-          />
-        )}
+        <Button label="Movies"
+          className="test" 
+          disabled={!hasData(this.props.movieCredits)}
+          onClick={(event) => this.changeCredits('movieCredits', event)}
+        />
+        <Button 
+          label="Series" 
+          disabled={!hasData(this.props.tvCredits)}
+          onClick={(event) => this.changeCredits('tvCredits', event)}
+        />
       </div>
     );
   }
