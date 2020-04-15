@@ -24,7 +24,7 @@ const Director = ({ data, label }) => {
 }
 
 Director.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   label: PropTypes.string
 }
 
