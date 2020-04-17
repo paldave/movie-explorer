@@ -25,23 +25,23 @@ class App extends Component {
 
   render() {
     if (this.props.apiConfig.isInitializing) {
-      return <SplashScreen />;
+      return <SplashScreen/>;
     }
 
     return (
       <BrowserRouter>
         <div className="App">
-          <ScrollToTop />
-          <Navbar />
+          <ScrollToTop/>
+          <Navbar/>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Home}/>
 
-            <Route path="/movies/details/:id/full-cast" component={MoviesCast} />
-            <Route path="/movies/details/:id" component={MoviesDetails} />
-            <Route path="/tv/details/:id/full-cast" component={TvCast} />
-            <Route path="/tv/details/:id" component={TvDetails} />
+            <Route path="/movies/details/:id/full-cast" component={MoviesCast}/>
+            <Route path="/movies/details/:id" component={MoviesDetails}/>
+            <Route path="/tv/details/:id/full-cast" component={TvCast}/>
+            <Route path="/tv/details/:id" component={TvDetails}/>
 
-            <Route path="/person-details/:id" component={Person} />
+            <Route path="/person-details/:id" component={Person}/>
           </Switch>
         </div>
       </BrowserRouter>
