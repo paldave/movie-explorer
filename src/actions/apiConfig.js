@@ -9,6 +9,7 @@ const parseImagesObject = (payload) => {
   );
 
   const availableSizes = {
+    [PROPORTION.PROFILE_THUMBNAIL]: images.poster_sizes[0],
     [PROPORTION.THUMBNAIL]: images.poster_sizes[1],
     [PROPORTION.POSTER]: images.poster_sizes[3],
     [PROPORTION.BACKDROP]: images.backdrop_sizes[2]

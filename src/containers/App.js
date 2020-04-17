@@ -9,7 +9,9 @@ import Navbar from '../components/layout/Navbar';
 import ScrollToTop from '../helpers/scroll';
 import Home from './Home';
 import MoviesDetails from './details/Movies';
+import MoviesCast from './details/full-cast/MoviesCast';
 import TvDetails from './details/Tv';
+import TvCast from './details/full-cast/TvCast';
 import Person from './Person';
 
 class App extends Component {
@@ -33,9 +35,13 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/movies/details/:id" component={MoviesDetails} />
-            <Route exact path="/tv/details/:id" component={TvDetails} />
-            <Route exact path="/person-details/:id" component={Person} />
+
+            <Route path="/movies/details/:id/full-cast" component={MoviesCast} />
+            <Route path="/movies/details/:id" component={MoviesDetails} />
+            <Route path="/tv/details/:id/full-cast" component={TvCast} />
+            <Route path="/tv/details/:id" component={TvDetails} />
+
+            <Route path="/person-details/:id" component={Person} />
           </Switch>
         </div>
       </BrowserRouter>

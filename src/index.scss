@@ -31,6 +31,11 @@ a:hover, a:visited, a:link, a:active, a:any-link {
   max-width: 70vw;
   margin: auto;
   padding-top: 350px;
+
+  &.no-padding {
+    padding-top: 30px;
+    background-color: transparent;
+  }
 }
 
 .main-title {

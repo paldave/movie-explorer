@@ -20,7 +20,7 @@ class TvDetails extends Component {
 
   renderSidebar() {
     const { data, apiConfig } = this.props; 
-    
+
     return (
       <section className="item-details-info">
         <div className="genres">
@@ -67,6 +67,8 @@ class TvDetails extends Component {
   render() {
     const { apiConfig, data } = this.props;
 
+    const linkToCast = `${this.props.location.pathname}/full-cast`;
+
     return (
       <div className="item-details-container">
         <Backdrop
@@ -102,11 +104,13 @@ class TvDetails extends Component {
             <section className="item-details-cast">
               <SectionHeader
                 title='Cast'
+                linkName='View full Cast & Crew'
+                linkTo={linkToCast}
               />
               <ItemList
                 data={data.credits.cast}
                 apiConfig={apiConfig}
-                viewMore={true}
+                viewMoreLink={linkToCast}
               />
             </section>
             <section className="item-details-reviews">

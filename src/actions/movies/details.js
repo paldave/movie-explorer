@@ -1,24 +1,9 @@
 import { parseVideos } from '../../helpers/parseVideos';
+import { parseCrew } from '../../helpers/parseCrew';
 import { 
   API_REQUEST, 
-  GET_MOVIES_DETAILS, 
+  GET_MOVIES_DETAILS,
 } from '../../constants';
-
-const parseCrew = (crew) => {
-  let parsedData = {};
-  
-  crew.forEach((member) => {
-    const { department } = member;
-    
-    if (!parsedData.hasOwnProperty(department)) {
-      parsedData[department] = [];
-    }
-
-    parsedData[department].push(member);
-  });
-  
-  return parsedData;
-}
 
 const saveMoviesDetails = (payload) => {
   payload.videos = parseVideos(payload.videos.results);

@@ -1,0 +1,74 @@
+@import '../../../styles/variables';
+
+section {
+  padding-top: 0;
+}
+
+.full-cast-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  .main-header {
+    grid-column: 1 / 3;
+    display: inline-flex;
+
+    .poster {
+      padding-right: 10px;
+
+      img {
+        height: 231px;
+        width: 154px;
+  
+        border-radius: 5px;
+      }
+    }
+
+    .button {
+      svg {
+        position: relative;
+        top: 2px;
+        font-size: 16px;
+      }
+
+      span {
+        position: relative;
+        bottom: 1px;
+      }
+    }
+  }
+
+  .cast-tables {
+    grid-column: 1;
+  }
+
+  .crew-tables {
+    grid-column: 2;
+
+    .table-main {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .full-cast-wrapper {
+    .main-header {
+      .poster img {
+        height: 195px;
+        width: 130px;
+      }
+
+      .main-title {
+        font-size: 22px;
+
+        .year {
+          font-size: 17px;
+        }
+      }
+    }
+
+    .cast-tables, .crew-tables {
+      grid-column: 1 / 3;
+    }
+  }
+}

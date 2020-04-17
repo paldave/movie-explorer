@@ -3,6 +3,20 @@
   
   height: 271px;
 
+  &.extra-small {
+    width: 92px;
+    height: 138px;
+
+    .card-top img, .no-image {
+      width: 92px;
+      height: 138px;
+    }
+
+    .card-top .card-meta {
+      pointer-events: none;
+    }
+  }
+
   .card-meta-character {
     text-align: center;
   

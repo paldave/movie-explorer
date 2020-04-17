@@ -13,7 +13,10 @@ export default (WrappedContainer, fetchData) => {
 
     componentDidMount() {
       const id = this.props.match.params.id;
-      this.props.fetchData(id);
+
+      if (this.props.data.id !== Number(id)) {
+        this.props.fetchData(id);
+      }
     }
 
     componentDidUpdate(prevProps) {
@@ -22,13 +25,13 @@ export default (WrappedContainer, fetchData) => {
       if (newId !== prevId) {
         this.props.fetchData(this.props.match.params.id);
       }
-    }
+    } 
 
     render() {
       if (!this.props.data.isLoaded || this.props.isLoading) {
         return (<SplashScreen/>);
       }
-
+      
       return (
         <WrappedContainer {...this.props} />
       );

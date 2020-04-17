@@ -9,13 +9,11 @@ import './ItemCast.scss';
 export default class ItemCast extends Component {
   static propTypes = {
     data: PropTypes.object.isRequired,
-    apiConfig: PropTypes.object.isRequired,
+    apiConfig: PropTypes.object.isRequired
   }
 
-  constructor(props) {
-    super(props);
-
-    this.SIZE = PROPORTION.THUMBNAIL;
+  static defaultProps = {
+    PROFILE_THUMBNAIL: false
   }
 
   renderImage(imageConfig, path) {
@@ -23,7 +21,12 @@ export default class ItemCast extends Component {
       return <ImageUnavailable/>;
     }
 
-    const size = imageConfig.availableSizes[this.SIZE];
+    const proportionType = 
+      this.props.PROFILE_THUMBNAIL ?
+      PROPORTION.PROFILE_THUMBNAIL : 
+      PROPORTION.THUMBNAIL; 
+
+    const size = imageConfig.availableSizes[proportionType];
     const url = getUrl(size, imageConfig.baseUrl, path);
 
     return (
@@ -32,19 +35,21 @@ export default class ItemCast extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, PROFILE_THUMBNAIL } = this.props;
     const { imageConfig } = this.props.apiConfig;
 
     return (
-      <div className="item-card item-card-thumb item-card-cast">
+      <div className={`item-card item-card-thumb item-card-cast ${PROFILE_THUMBNAIL ? 'extra-small' : ''}`}>
         <Link to={`/person-details/${data.id}`}>
           <div className="card-top">
             <div className="card-meta"/>
             {this.renderImage(imageConfig, data.profile_path)}
-            <div className="card-meta-character">
-              <span className="actor">{data.name}</span> <br/>
-              <span className="white-med-color character-name">{data.character}</span>
-            </div>
+            {!PROFILE_THUMBNAIL && (
+              <div className="card-meta-character">
+                <span className="actor">{data.name}</span> <br/>
+                <span className="white-med-color character-name">{data.character}</span>
+              </div>
+            )}
           </div>
         </Link>
       </div>

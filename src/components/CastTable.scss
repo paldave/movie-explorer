@@ -1,0 +1,46 @@
+@import '../styles/variables';
+
+.table-main {
+  &.cast {
+    table-layout: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+    
+    .primary {
+      color: $pink-primary-color;
+    }
+
+    .name {
+      font-size: 18px;
+    }
+
+    &.include-photos {
+      text-align: center;
+    }
+
+    .table-item {
+      border-collapse: separate;
+      border-bottom: 1px solid $transparent-color-01dp;
+      height: 40px;
+  
+      cursor: pointer;
+
+      .item-photo {
+        padding: 10px 0;
+      }
+  
+      .item-name {
+        width: 40%;
+        padding-left: 20px;
+      }
+  
+      .item-details {
+        padding-right: 20px;
+      }
+  
+      &:hover, &:active, &:focus {
+        background-color: $transparent-color-01dp;
+      }
+    }
+  }
+}
