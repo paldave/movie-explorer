@@ -26,10 +26,28 @@ const parseGenres = (payload) => (
   )
 );
 
+const parseGenresForms = (payload) => {
+  let parsedObject = {};
+
+  payload.forEach(({ id, name }) => (
+    parsedObject[name.toLowerCase()] = {
+      type: 'with_genres',
+      value: id,
+      label: name
+    }
+  ));
+
+  return parsedObject;
+}
+
 const saveApiConfig = (apiConfig, genres) => {
   return {
     type: GET_API_CONFIG,
-    payload: { ...parseImagesObject(apiConfig), genres: parseGenres(genres) }
+    payload: { 
+      ...parseImagesObject(apiConfig), 
+      genres: parseGenres(genres),
+      genresForms: parseGenresForms(genres)
+    }
   }
 }
 

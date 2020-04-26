@@ -1,8 +1,13 @@
-import { API_REQUEST, API_FINISH, API_ERROR } from '../constants';
+import { 
+  API_REQUEST, 
+  API_FINISH, 
+  API_ERROR,
+} from '../constants';
 
 // TODO
 const initialState = {
-  pendingRequests: 0
+  pendingRequests: 0,
+  lastSelectedFilters: {}
 }; 
 
 const userInterface = (state = initialState, action) => {

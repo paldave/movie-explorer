@@ -54,7 +54,7 @@ export default class ItemThumb extends Component {
                 <div className="card-meta-details">
                   <span>{data.title || data.name}</span>
                   <br/>
-                  <span>{getYear(data.release_date || data.first_air_date)}</span>
+                  <span>{getYear(data.release_date || data.first_air_date) || '-'}</span>
                 </div>
               </div>
             }

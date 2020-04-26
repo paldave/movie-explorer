@@ -1,0 +1,201 @@
+@import '../../styles/variables';
+
+.filter-card {
+  width: 100%;
+  z-index: 999;
+
+  box-shadow: 0 0 2px $main-background-color;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  background-color: $transparent-color-01dp;
+  border-radius: 5px;
+
+  width: 290px;
+
+  + .filter-card {
+    margin-top: 10px;
+  }
+
+  .name {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    width: 100%;
+    padding: 0 20px;
+
+    cursor: pointer;
+  }
+
+  &.closed .filter-item {
+    display: none;
+    opacity: 0;
+  }
+
+  .filter-item {
+    opacity: 1;
+    width: 100%;
+    padding: 0px 20px 15px 20px;
+    border-top: 1px solid $transparent-color-01dp;
+
+    .date-from {
+      padding-bottom: 10px;
+    }
+
+    .date-from, .date-to {
+      .label {
+        display: inline-flex;
+        align-items: center;
+        width: 25%;
+      }
+    }
+  }
+
+  &.search-button {
+    height: 45px;
+    border-radius: 15px; 
+    
+    border-color: transparent;
+    background-color: $pink-secondary-color;
+    box-shadow: 0 0 1px $transparent-color-01dp;
+
+    outline: 0;
+    cursor: pointer;
+
+    .label {
+      color: $white-high-color;
+      margin: auto;
+      font-size: 20px;
+    }
+
+    &.disabled {
+      cursor: auto;
+      pointer-events: none;
+      background-color: $white-disabled-color;
+
+      .label {
+        color: $white-disabled-color;
+      }
+    }
+  }
+}
+
+.select-dropdown {
+  .select-dropdown__control {
+    background-color: $transparent-color-04dp;
+    border-color: transparent;
+    box-shadow: 0 0 1px $transparent-color-01dp;
+
+    border-radius: 5px;
+
+    &:hover, &:active, &:focus {
+      border-color: $transparent-color-08dp;
+    }
+
+    .select-dropdown__multi-value {
+      background-color: $transparent-color-08dp;
+
+      .select-dropdown__multi-value__label {
+        color: $white-high-color;
+      }
+
+      .select-dropdown__multi-value__remove {
+        color: $white-med-color;
+        
+        &:hover {
+          background-color: $pink-secondary-color;
+        }
+      }
+    }
+  }
+
+  .select-dropdown__value-container {
+    .select-dropdown__single-value {
+      font-size: 14px;
+      color: $white-high-color;
+    }
+  }
+
+  .select-dropdown__indicators .select-dropdown__indicator-separator {
+    background-color: $transparent-color-08dp;
+  }
+
+  .select-dropdown__menu {
+    background-color: $non-transparent-color-24dp;
+    top: 40px;
+    border-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 1px $transparent-color-01dp;
+
+    .select-dropdown__input {
+      color: $white-high-color;
+    }
+
+    .select-dropdown__option {
+      font-size: 14px;
+      color: $white-high-color;
+
+      &:hover {
+        background-color: $transparent-color-01dp;
+      }
+
+      &.is-selected {
+        background-color: $transparent-color-04dp;
+        border-radius: 5px;
+      }
+    }
+
+    .select-dropdown__option--is-selected {
+      background-color: $transparent-color-24dp;
+    }
+
+    .select-dropdown__option--is-focused {
+      background-color: $transparent-color-08dp;
+    }
+  }
+}
+
+.react-datepicker-wrapper {
+  .react-datepicker__input-container {
+    input {
+      height: 32px;
+
+
+      background-color: $transparent-color-04dp;
+      border-color: transparent;
+      box-shadow: 0 0 1px $transparent-color-01dp;
+      border-radius: 5px;
+
+      color: $white-high-color;
+      font-size: 14px;
+    }
+  }
+}
+
+.react-datepicker__tab-loop {
+  .react-datepicker-popper {
+    .react-datepicker {
+      background-color: $non-transparent-color-24dp;
+      color: $white-high-color;
+      border-color: $transparent-color-08dp;
+    }
+    
+    .react-datepicker-year-header {
+      background-color: $non-transparent-color-24dp;
+      color: $white-high-color;
+      border-color: $transparent-color-08dp;
+    }
+
+    .react-datepicker__day, 
+    .react-datepicker__month-text, 
+    .react-datepicker__quarter-text {
+      &:hover {
+        background-color: $transparent-color-16dp
+      }
+    }
+  }
+}

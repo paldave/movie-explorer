@@ -15,13 +15,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    if (
-      !this.props.moviesPopular.isLoaded && 
-      !this.props.moviesUpcoming.isLoaded && 
-      !this.props.tvPopular.isLoaded
-    ) {
+    if (!this.props.moviesPopular.isLoaded) {
       this.props.fetchMoviesPopular();
+    }
+
+    if (!this.props.moviesUpcoming.isLoaded) {
       this.props.fetchMoviesUpcoming();
+    }
+
+    if (!this.props.tvPopular.isLoaded) {
       this.props.fetchTvPopular();
     }
   }
@@ -53,10 +55,13 @@ class Home extends Component {
             <section id="movies-popular">
               <SectionHeader
                 title='Popular movies'
+                linkName='View more'
+                linkTo='/movies'
               />
               <ItemList
                 data={moviesPopular.results}
                 apiConfig={apiConfig}
+                viewMoreLink='/movies'
               />
             </section>
             <section id="tv-incoming">

@@ -25,8 +25,7 @@ export default (WrappedContainer, fetchData) => {
     }
 
     goBackToDetails = () => {
-      const urlToChange = this.props.match.url.replace(/\/full-cast/, '');
-      this.props.history.push(urlToChange);
+      this.props.history.goBack();
     }
 
     renderContent = () => {

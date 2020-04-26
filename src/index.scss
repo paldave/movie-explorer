@@ -32,6 +32,10 @@ a:hover, a:visited, a:link, a:active, a:any-link {
   margin: auto;
   padding-top: 350px;
 
+  &.poster-grid {
+    max-width: 1300px;
+  }
+
   &.no-padding {
     padding-top: 30px;
     background-color: transparent;
