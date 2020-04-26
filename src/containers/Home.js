@@ -64,7 +64,7 @@ class Home extends Component {
                 viewMoreLink='/movies'
               />
             </section>
-            <section id="tv-incoming">
+            <section id="tv-upcoming">
               <SectionHeader
                 title='Popular Series'
               />
@@ -73,7 +73,7 @@ class Home extends Component {
                 apiConfig={apiConfig}
               />
             </section>
-            <section id="movies-incoming">
+            <section id="movies-upcoming">
               <SectionHeader
                 title='Upcoming movies'
               />
