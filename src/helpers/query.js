@@ -1,4 +1,7 @@
-import { getDatePlusMonthFormatted } from './date';
+import { 
+  getDatePlusMonthFormatted, 
+  getDatePlusDayFormatted 
+} from './date';
 
 export const SORT_BY = {
   popularityDesc: { type: 'sort_by', value: 'popularity.desc', label: 'Popularity Descending' },
@@ -16,11 +19,17 @@ export const RELEASE_DATE = {
   lessThan: { type: 'primary_release_date.lte', value: null, label: 'To: ' }
 }
 
-export const baseQuery = () => ({
+export const defaultQueryValues = () => ({
   include_adult: false,
   include_video: false,
   'primary_release_date.lte': getDatePlusMonthFormatted(6)
 });
+
+export const upcomingQueryValues = () => ({
+  ...defaultQueryValues(),
+  'primary_release_date.gte': getDatePlusDayFormatted(2),
+  'primary_release_date.lte': getDatePlusMonthFormatted(1)
+})
 
 export const parseQuery = (data) => {
   let parsedQueryList = {};

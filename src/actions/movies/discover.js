@@ -3,7 +3,11 @@ import {
   GET_MOVIES_DISCOVER, 
   CLEAR_STORE_STATE 
 } from '../../constants';
-import { parseQuery, baseQuery } from '../../helpers/query';
+import { 
+  parseQuery, 
+  defaultQueryValues, 
+  upcomingQueryValues 
+} from '../../helpers/query';
 
 const saveMoviesDiscover = (payload, query) => {
   return {
@@ -17,7 +21,7 @@ export const clearStoreState = () => ({
   type: CLEAR_STORE_STATE
 });
 
-export const fetchMoviesDiscover = (unparsedQuery, currentPage) => {
+const _fetchMoviesBase = (unparsedQuery, currentPage, baseQuery) => {
   unparsedQuery.page = currentPage;
 
   const parsedQuery = parseQuery(unparsedQuery);
@@ -32,5 +36,13 @@ export const fetchMoviesDiscover = (unparsedQuery, currentPage) => {
       data: { ...baseQuery(), ...parsedQuery }
     }
   }
+}
+
+export const fetchMoviesDiscover = (unparsedQuery, currentPage) => {
+  return _fetchMoviesBase(unparsedQuery, currentPage, defaultQueryValues);
+};
+
+export const fetchMoviesDiscoverUpcoming = (unparsedQuery, currentPage) => {
+  return _fetchMoviesBase(unparsedQuery, currentPage, upcomingQueryValues);
 };
 
