@@ -3,13 +3,13 @@
 .backdrop-container {
   position: absolute;
   z-index: 0;
-  top: 0;
+  top: 62px;
   left: 0;
   overflow: hidden;
   width: 100%;
   height: 675px;
 
-  &.no-image {
+  &.no-background {
     position: relative;
     height: 0;
     margin-bottom: -330px;
@@ -109,6 +109,10 @@
   .backdrop-container {
     height: 0;
     padding-top: 60%;
+
+    .no-background {
+      background-color: transparent;
+    }
 
     .backdrop-wrapper {
       padding-top: 60%;

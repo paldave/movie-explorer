@@ -12,13 +12,18 @@ import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { SORT_BY } from '../../helpers/query';
 import './GridBase.scss';
 
-export default (WrappedContainer, fetchDataAction, itemType) => {
+const defaultQuery = {
+  sort_by: SORT_BY.popularityDesc,
+  page: 0
+}
+
+export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defaultQuery) => {
   class GridBase extends Component {
     static propTypes = {
       WrappedContainer: PropTypes.element,
       fetchData: PropTypes.func,
       itemType: PropTypes.object,
-      defaultQuery: PropTypes.shape({
+      wrappedQuery: PropTypes.shape({
         sort_by: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
         page: PropTypes.number.isRequired
       })
@@ -30,12 +35,12 @@ export default (WrappedContainer, fetchDataAction, itemType) => {
       query: null
     }
   
-    static defaultProps = {
-      defaultQuery: {
-        sort_by: SORT_BY.popularityDesc,
-        page: 0
-      }
-    }
+    // static defaultProps = {
+    //   defaultQuery: {
+    //     sort_by: SORT_BY.popularityDesc,
+    //     page: 0
+    //   }
+    // }
 
     componentDidMount() {
       if (!this.props.data.isLoaded) {
@@ -58,7 +63,7 @@ export default (WrappedContainer, fetchDataAction, itemType) => {
       }
     }
   
-    fetchData(query = this.props.defaultQuery, currentPage) {
+    fetchData(query = wrappedQuery, currentPage) {
       this.props.fetchDataAction(query, currentPage);
     }
   
@@ -74,12 +79,12 @@ export default (WrappedContainer, fetchDataAction, itemType) => {
   
     renderFilterPanel() {
       const { genresForms } = this.props.apiConfig;
-      const { defaultQuery } = this.props;
+      const { wrappedQuery } = this.props;
   
       return (
         <FilterList
           handleSubmit={this.handleSubmit}
-          defaultQuery={defaultQuery}
+          defaultQuery={wrappedQuery}
           userQuery={this.props.data.query}
           availableGenres={genresForms}
         />

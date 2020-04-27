@@ -6,7 +6,8 @@ import {
 import { 
   parseQuery, 
   defaultQueryValues, 
-  upcomingQueryValues 
+  upcomingQueryValues,
+  topRatedQueryValues 
 } from '../../helpers/query';
 
 const saveMoviesDiscover = (payload, query) => {
@@ -44,5 +45,9 @@ export const fetchMoviesDiscover = (unparsedQuery, currentPage) => {
 
 export const fetchMoviesDiscoverUpcoming = (unparsedQuery, currentPage) => {
   return _fetchMoviesBase(unparsedQuery, currentPage, upcomingQueryValues);
+};
+
+export const fetchMoviesDiscoverTopRated = (unparsedQuery, currentPage) => {
+  return _fetchMoviesBase(unparsedQuery, currentPage, topRatedQueryValues);
 };
 

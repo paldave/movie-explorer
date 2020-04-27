@@ -13,10 +13,12 @@ import MoviesDetails from './details/Movies';
 import MoviesCast from './details/full-cast/MoviesCast';
 import MoviesPopular from './grids/movies/Popular';
 import MoviesUpcoming from './grids/movies/Upcoming';
+import MoviesTopRated from './grids/movies/TopRated';
 
 import TvDetails from './details/Tv';
-import TvPopular from './grids/tv/Popular';
 import TvCast from './details/full-cast/TvCast';
+import TvPopular from './grids/tv/Popular';
+import TvTopRated from './grids/tv/TopRated';
 
 import Person from './Person';
 
@@ -45,10 +47,12 @@ class App extends Component {
             <Route path="/movies/details/:id/full-cast" component={MoviesCast}/>
             <Route path="/movies/details/:id" component={MoviesDetails}/>
             <Route exact path="/movies/upcoming" component={MoviesUpcoming}/>
+            <Route exact path="/movies/top-rated" component={MoviesTopRated}/>
             <Route exact path="/movies" component={MoviesPopular}/>
 
             <Route path="/tv/details/:id/full-cast" component={TvCast}/>
             <Route path="/tv/details/:id" component={TvDetails}/>
+            <Route exact path="/tv/top-rated" component={TvTopRated}/>
             <Route exact path="/tv" component={TvPopular}/>
 
             <Route path="/person-details/:id" component={Person}/>

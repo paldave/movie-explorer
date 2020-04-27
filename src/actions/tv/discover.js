@@ -6,7 +6,7 @@ import {
 import { 
   parseQuery, 
   defaultQueryValues, 
-  upcomingQueryValues 
+  topRatedQueryValues
 } from '../../helpers/query';
 
 const saveTvDiscover = (payload, query) => {
@@ -42,7 +42,6 @@ export const fetchTvDiscover = (unparsedQuery, currentPage) => {
   return _fetchTvBase(unparsedQuery, currentPage, defaultQueryValues);
 };
 
-export const fetchTvDiscoverUpcoming = (unparsedQuery, currentPage) => {
-  return _fetchTvBase(unparsedQuery, currentPage, upcomingQueryValues);
+export const fetchTvDiscoverTopRated = (unparsedQuery, currentPage) => {
+  return _fetchTvBase(unparsedQuery, currentPage, topRatedQueryValues);
 };
-

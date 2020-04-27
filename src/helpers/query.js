@@ -31,6 +31,11 @@ export const upcomingQueryValues = () => ({
   'primary_release_date.lte': getDatePlusMonthFormatted(1)
 })
 
+export const topRatedQueryValues = () => ({
+  ...defaultQueryValues(),
+  'vote_count.gte': 300
+})
+
 export const parseQuery = (data) => {
   let parsedQueryList = {};
 

@@ -26,7 +26,7 @@ export default class Backdrop extends Component {
     }
     
     return (
-      <div className={`backdrop-container ${!backdropPath ? 'no-image' : ''}`}>
+      <div className={`backdrop-container ${!backdropPath ? 'no-background' : ''}`}>
         <div className="backdrop-wrapper">
           <div style={imageStyle} className="backdrop-image"/>
           <div className="backdrop-blur"/>

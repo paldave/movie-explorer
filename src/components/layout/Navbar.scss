@@ -1,56 +1,103 @@
-.navbar {
-  max-width: 85vw;
-  margin: auto;
-  position: relative;
-  top: 0;
-  display: flex;
-  height: 60px;
-  z-index: 1000;
-  justify-content: space-between;
-  
-  li {
-    list-style: none;
-    padding: 4px 4px;
-    margin-top: 0;
-  }
-  
-  .navbar-left {
-    height: 100%;
-    display: block;
+@import '../../styles/variables.scss';
 
+.navbar-wrapper {
+  z-index: 9999;
+  // background-color: $non-transparent-color-01dp;
+  box-shadow: 0 0 10px $main-background-color; 
+  border-bottom: 2px solid $non-transparent-color-01dp;
+
+  .navbar {
+    max-width: 70vw;
+    margin: auto;
+    position: relative;
+    top: 0;
+    display: flex;
+    height: 60px;
+    z-index: 1000;
+    justify-content: space-between;
     
-    .navbar-brands {
+    li {
+      list-style: none;
+      padding: 4px 4px;
+      margin-top: 0;
+    }
+    
+    .navbar-left {
       height: 100%;
-      display: flex;
-      align-items: center;
-
-      .navbar-logo {
-        padding-right: 10px;
-        height: 50px;
+      display: block;
+  
+      
+      .navbar-brands {
+        height: 100%;
+        display: flex;
+        align-items: center;
+  
+        .navbar-logo {
+          padding-right: 10px;
+          height: 50px;
+        }
+  
+        .navbar-name {
+          font-size: 24px;
+        }
       }
+    }
+  
+    .navbar-right {
+      height: 100%;
+      display: block;
+  
+      ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0;
+  
+        li {
+          font-size: 20px;
+          position: relative;
+          overflow: hidden;
+          justify-content: center;
 
-      .navbar-name {
-        font-size: 24px;
+          cursor: pointer;
+        }
+
+        .popup-content {
+          background: none !important;
+          background-color: $non-transparent-color-24dp !important;
+          border-radius: 5px !important;
+          border-color: transparent !important;
+
+          .popup-menu {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            right: 6px;
+            width: 212px;
+
+            .item {
+              padding: 8px 16px 8px 16px;
+              cursor: pointer;
+
+              &:hover, &:active, &:focus {
+                background-color: $transparent-color-04dp;
+              }
+            }
+          }
+
+          .popup-arrow {
+            display: none;
+          }
+        }
       }
     }
   }
+}
 
-  .navbar-right {
-    height: 100%;
-    display: block;
-
-    ul {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      margin: 0;
-
-      li {
-        font-size: 20px;
-        position: relative;
-        overflow: hidden;
-        justify-content: center;
-      }
+@media only screen and (max-width: 1024px) {
+  .navbar-wrapper {
+    .navbar {
+      max-width: 90vw;
     }
   }
 }
