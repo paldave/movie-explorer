@@ -1,13 +1,13 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchMoviesDiscoverUpcoming } from '../../../actions/movies/discover';
+import { fetchTvDiscover } from '../../../actions/tv/discover';
 import { ITEM_TYPE } from '../../../helpers/itemType';
 import GridBase from '../GridBase';
 
-class Upcoming extends Component {
+class Popular extends Component {
   static propTypes = {
-    fetchMoviesDiscoverUpcoming: PropTypes.func,
+    fetchTvDiscover: PropTypes.func,
     data: PropTypes.object.isRequired
   }
 
@@ -17,7 +17,7 @@ class Upcoming extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.moviesDiscover
+  data: state.tvDiscover
 });
 
-export default connect(mapStateToProps, {})(GridBase(Upcoming, fetchMoviesDiscoverUpcoming, ITEM_TYPE.MOVIES));
+export default connect(mapStateToProps, {})(GridBase(Popular, fetchTvDiscover, ITEM_TYPE.TV));

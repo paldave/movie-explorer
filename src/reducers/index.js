@@ -8,6 +8,7 @@ import moviesDetails from './movies/details';
 import moviesDiscover from './movies/discover';
 import tvPopular from './tv/popular';
 import tvDetails from './tv/details';
+import tvDiscover from './tv/discover';
 import personDetails from './personDetails';
 
 export default combineReducers({
@@ -20,5 +21,6 @@ export default combineReducers({
   moviesDiscover,
   tvPopular,
   tvDetails,
+  tvDiscover,
   personDetails
 });

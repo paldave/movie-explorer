@@ -10,14 +10,14 @@ import FilterList from '../../components/filters/FilterList';
 import SimpleLoader from '../../components/layout/SimpleLoader';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { SORT_BY } from '../../helpers/query';
-import { ITEM_TYPE } from '../../helpers/itemType';
 import './GridBase.scss';
 
-export default (WrappedContainer, fetchDataAction) => {
+export default (WrappedContainer, fetchDataAction, itemType) => {
   class GridBase extends Component {
     static propTypes = {
       WrappedContainer: PropTypes.element,
       fetchData: PropTypes.func,
+      itemType: PropTypes.object,
       defaultQuery: PropTypes.shape({
         sort_by: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
         page: PropTypes.number.isRequired
@@ -149,7 +149,7 @@ export default (WrappedContainer, fetchDataAction) => {
                         <ItemThumb
                           data={item}
                           apiConfig={apiConfig}
-                          itemType={ITEM_TYPE.MOVIES}
+                          itemType={itemType}
                         />
                       </li>
                     ))}

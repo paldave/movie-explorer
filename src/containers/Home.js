@@ -67,10 +67,13 @@ class Home extends Component {
             <section id="tv-upcoming">
               <SectionHeader
                 title='Popular Series'
+                linkName='View more'
+                linkTo='/tv'
               />
               <ItemList
                 data={tvPopular.results}
                 apiConfig={apiConfig}
+                viewMoreLink='/tv'
               />
             </section>
             <section id="movies-upcoming">

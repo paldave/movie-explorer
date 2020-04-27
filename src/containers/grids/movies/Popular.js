@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchMoviesDiscover } from '../../../actions/movies/discover';
+import { ITEM_TYPE } from '../../../helpers/itemType';
 import GridBase from '../GridBase';
 
 class Popular extends Component {
@@ -19,4 +20,4 @@ const mapStateToProps = (state) => ({
   data: state.moviesDiscover
 });
 
-export default connect(mapStateToProps, {})(GridBase(Popular, fetchMoviesDiscover));
+export default connect(mapStateToProps, {})(GridBase(Popular, fetchMoviesDiscover, ITEM_TYPE.MOVIES));
