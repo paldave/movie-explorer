@@ -15,10 +15,14 @@
     height: 60px;
     z-index: 1000;
     justify-content: space-between;
+
+    .sidebar {
+      display: none;
+    }
     
     li {
       list-style: none;
-      padding: 4px 4px;
+      padding: 4px 12px;
       margin-top: 0;
     }
     
@@ -84,10 +88,6 @@
               }
             }
           }
-
-          .popup-arrow {
-            display: none;
-          }
         }
       }
     }
@@ -98,6 +98,14 @@
   .navbar-wrapper {
     .navbar {
       max-width: 90vw;
+
+      .sidebar {
+        display: flex;
+      }
+
+      .navbar-right {
+        display: none;
+      }
     }
   }
 }
@@ -138,8 +146,8 @@
   .navbar {
     padding: 0 20px;
 
-    .navbar-name {
-      display: none;
-    }
+    // .navbar-name {
+    //   display: none;
+    // }
   }
 }

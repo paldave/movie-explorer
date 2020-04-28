@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
+import Sidebar from './Sidebar';
 import logo from '../../images/astronaut.svg';
 import './Navbar.scss';
 
@@ -15,6 +16,7 @@ export default class Navbar extends Component {
               <div className="navbar-name">TMEX</div>
             </Link>
           </div>
+          <Sidebar/>
           <div className="navbar-right">
             <ul> 
               <Popup
@@ -22,6 +24,7 @@ export default class Navbar extends Component {
                 position="bottom center"
                 on="hover"
                 closeOnDocumentClick
+                arrow={false}
               >
                 <div className="popup-menu">
                   <Link to="/movies" className="item">
@@ -40,6 +43,7 @@ export default class Navbar extends Component {
                 position="bottom center"
                 on="hover"
                 closeOnDocumentClick
+                arrow={false}
               >
                 <div className="popup-menu">
                   <Link to="/tv" className="item">

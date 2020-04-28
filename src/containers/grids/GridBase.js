@@ -17,7 +17,7 @@ const defaultQuery = {
   page: 0
 }
 
-export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defaultQuery) => {
+export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defaultQuery, mainTitle) => {
   class GridBase extends Component {
     static propTypes = {
       WrappedContainer: PropTypes.element,
@@ -34,18 +34,9 @@ export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defa
       currentPage: 0,
       query: null
     }
-  
-    // static defaultProps = {
-    //   defaultQuery: {
-    //     sort_by: SORT_BY.popularityDesc,
-    //     page: 0
-    //   }
-    // }
 
     componentDidMount() {
-      if (!this.props.data.isLoaded) {
-        this.fetchData(undefined, 1);
-      }
+      this.fetchData(undefined, 1);
     }
   
     componentWillUnmount() {
@@ -132,7 +123,7 @@ export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defa
       return (
         <div className="body-container no-padding poster-grid">
           <section className="main-title">
-            Popular movies
+            {mainTitle}
           </section>
           <section className="posters">
             <section className="filters">

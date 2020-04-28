@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.sidebar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .hamburger-icon {
+    position: relative;
+    top: 2px;
+
+    font-size: 24px;
+  }
+
+  aside {
+    nav {
+      -webkit-tap-highlight-color: transparent;
+
+      background-color: $non-transparent-color-24dp !important;
+      width: 70% !important;
+
+      h1 {
+        display: none;
+      }
+      
+      .category-main {
+        cursor: pointer;
+        margin-bottom: -30px;
+        
+        .category-name {
+          margin-bottom: 8px;
+        }
+  
+        .category-item {
+          padding: 5px;
+        }
+      }
+
+
+      ul {
+        padding: 0;
+
+        li {
+          background-color: $non-transparent-color-24dp !important;
+        }
+      }
+    }
+  }
+}

@@ -20,4 +20,11 @@ const mapStateToProps = (state) => ({
   data: state.moviesDiscover
 });
 
-export default connect(mapStateToProps, {})(GridBase(Upcoming, fetchMoviesDiscoverUpcoming, ITEM_TYPE.MOVIES));
+export default connect(mapStateToProps, {})
+  (GridBase(
+    Upcoming, 
+    fetchMoviesDiscoverUpcoming, 
+    ITEM_TYPE.MOVIES, 
+    undefined, 
+    'Upcoming Movies'
+  ));

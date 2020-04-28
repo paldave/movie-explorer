@@ -26,4 +26,11 @@ const mapStateToProps = (state) => ({
   data: state.moviesDiscover
 });
 
-export default connect(mapStateToProps, {})(GridBase(TopRated, fetchMoviesDiscoverTopRated, ITEM_TYPE.MOVIES, defaultQuery));
+export default connect(mapStateToProps, {})
+  (GridBase(
+    TopRated, 
+    fetchMoviesDiscoverTopRated, 
+    ITEM_TYPE.MOVIES, 
+    defaultQuery, 
+    'Top Rated Movies'
+  ));

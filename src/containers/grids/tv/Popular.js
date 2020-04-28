@@ -20,4 +20,11 @@ const mapStateToProps = (state) => ({
   data: state.tvDiscover
 });
 
-export default connect(mapStateToProps, {})(GridBase(Popular, fetchTvDiscover, ITEM_TYPE.TV));
+export default connect(mapStateToProps, {})
+  (GridBase(
+    Popular, 
+    fetchTvDiscover, 
+    ITEM_TYPE.TV, 
+    undefined, 
+    'Popular Series'
+  ));
