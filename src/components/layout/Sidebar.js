@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import SideNav from 'react-simple-sidenav';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { IoMdClose } from 'react-icons/io';
 import './Sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = ({ searchIcon, showSearchBar, setShowSearchBar }) => {
   const [showSidebar, setSidebar] = useState();
 
   const sidebarItems = [
@@ -46,6 +47,19 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+      <div
+        onClick={() => (setShowSearchBar((prevState) => setShowSearchBar(!prevState)))}
+      >
+        {showSearchBar ? (
+          <li className="search-icon">
+            <IoMdClose/>
+          </li>
+        ) : (
+          <>
+            {searchIcon()}
+          </>
+        )}
+      </div>
       <div className="hamburger-icon">
         <GiHamburgerMenu onClick={() => setSidebar(true)}/>
       </div>

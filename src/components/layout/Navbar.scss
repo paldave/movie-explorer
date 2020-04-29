@@ -91,6 +91,17 @@
         }
       }
     }
+
+    .search-icon {
+      position: relative;
+      top: 3px;
+
+      font-size: 28px !important;
+
+      &.disabled {
+        color: $white-disabled-color;
+      }
+    }
   }
 }
 
