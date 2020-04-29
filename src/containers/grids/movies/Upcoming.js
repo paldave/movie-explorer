@@ -17,7 +17,7 @@ class Upcoming extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.moviesDiscover
+  data: state.moviesDiscoverUpcoming
 });
 
 export default connect(mapStateToProps, {})

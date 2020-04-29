@@ -5,10 +5,17 @@ import moviesPopular from './movies/popular';
 import moviesNowPlaying from './movies/nowPlaying';
 import moviesUpcoming from './movies/upcoming';
 import moviesDetails from './movies/details';
-import moviesDiscover from './movies/discover';
+import { 
+  moviesDiscover, 
+  moviesDiscoverTop,
+  moviesDiscoverUpcoming
+} from './movies/discover';
 import tvPopular from './tv/popular';
 import tvDetails from './tv/details';
-import tvDiscover from './tv/discover';
+import { 
+  tvDiscover,
+  tvDiscoverTop
+} from './tv/discover';
 import personDetails from './personDetails';
 
 export default combineReducers({
@@ -19,8 +26,11 @@ export default combineReducers({
   moviesUpcoming,
   moviesDetails,
   moviesDiscover,
+  moviesDiscoverTop,
+  moviesDiscoverUpcoming,
   tvPopular,
   tvDetails,
   tvDiscover,
+  tvDiscoverTop,
   personDetails
 });

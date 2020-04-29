@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { clearStoreState } from '../../actions/movies/discover';
 import ReactPaginate from 'react-paginate';
+import Paginate from '../../components/Paginate';
 import SplashScreen from '../../components/layout/SplashScreen';
 import ItemThumb from '../../components/cards/ItemThumb';
 import FilterList from '../../components/filters/FilterList';
@@ -36,7 +37,9 @@ export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defa
     }
 
     componentDidMount() {
-      this.fetchData(undefined, 1);
+      if (!this.props.data.isLoaded) {
+        this.fetchData(undefined, 1);
+      }
     }
   
     componentWillUnmount() {
@@ -48,7 +51,7 @@ export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defa
     componentDidUpdate(prevProps, prevState) {
       if (prevState.currentPage !== this.state.currentPage) {
         this.fetchData(
-          this.state.query || undefined, 
+          this.props.data.query|| undefined, 
           this.state.currentPage
         );
       }
@@ -89,30 +92,12 @@ export default (WrappedContainer, fetchDataAction, itemType, wrappedQuery = defa
         return (<div/>);
       }
       
-      let page;
-      if (this.state.currentPage === 0) {
-        page = data.query.page - 1 || this.state.currentPage;
-      } else {
-        page = this.state.currentPage - 1
-      }
-      
       return (
-        <ReactPaginate
-          previousLabel={(<IoIosArrowBack/>)}
-          nextLabel={(<IoIosArrowForward/>)}
-          breakLabel='...'
-          breakClassName='item break'
-          pageClassName='item'
-          previousClassName='item previous'
-          nextClassName='item next'
-          pageCount={data.total_pages}
-          forcePage={page}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={2}
-          onPageChange={this.handlePageClick}
-          containerClassName='pagination'
-          subContainerClassName='pages pagination'
-          activeClassName='active'
+        <Paginate
+          currentPage={this.state.currentPage}
+          totalPages={data.total_pages}
+          queryPage={data.query.page}
+          handlePageClick={this.handlePageClick}
         />
       );
     }

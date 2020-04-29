@@ -23,7 +23,7 @@ class TopRated extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  data: state.moviesDiscover
+  data: state.moviesDiscoverTop
 });
 
 export default connect(mapStateToProps, {})

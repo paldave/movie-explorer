@@ -1,6 +1,8 @@
 import { 
   API_REQUEST, 
   GET_MOVIES_DISCOVER, 
+  GET_MOVIES_DISCOVER_TOP,
+  GET_MOVIES_DISCOVER_UPCOMING,
   CLEAR_STORE_STATE 
 } from '../../constants';
 import { 
@@ -18,11 +20,27 @@ const saveMoviesDiscover = (payload, query) => {
   }
 };
 
+const saveMoviesDiscoverTop = (payload, query) => {
+  return {
+    type: GET_MOVIES_DISCOVER_TOP,
+    payload,
+    query
+  }
+};
+
+const saveMoviesDiscoverUpcoming = (payload, query) => {
+  return {
+    type: GET_MOVIES_DISCOVER_UPCOMING,
+    payload,
+    query
+  }
+};
+
 export const clearStoreState = () => ({
   type: CLEAR_STORE_STATE
 });
 
-const _fetchMoviesBase = (unparsedQuery, currentPage, baseQuery) => {
+const _fetchMoviesBase = (unparsedQuery, currentPage, baseQuery, saveCallback) => {
   unparsedQuery.page = currentPage;
 
   const parsedQuery = parseQuery(unparsedQuery);
@@ -32,7 +50,7 @@ const _fetchMoviesBase = (unparsedQuery, currentPage, baseQuery) => {
     payload: {
       url: '/discover/movie',
       onSuccess: (payload) => [
-        saveMoviesDiscover(payload, unparsedQuery)
+        saveCallback(payload, unparsedQuery)
       ],
       data: { ...baseQuery(), ...parsedQuery }
     }
@@ -40,14 +58,13 @@ const _fetchMoviesBase = (unparsedQuery, currentPage, baseQuery) => {
 }
 
 export const fetchMoviesDiscover = (unparsedQuery, currentPage) => {
-  return _fetchMoviesBase(unparsedQuery, currentPage, defaultQueryValues);
-};
-
-export const fetchMoviesDiscoverUpcoming = (unparsedQuery, currentPage) => {
-  return _fetchMoviesBase(unparsedQuery, currentPage, upcomingQueryValues);
+  return _fetchMoviesBase(unparsedQuery, currentPage, defaultQueryValues, saveMoviesDiscover);
 };
 
 export const fetchMoviesDiscoverTopRated = (unparsedQuery, currentPage) => {
-  return _fetchMoviesBase(unparsedQuery, currentPage, topRatedQueryValues);
+  return _fetchMoviesBase(unparsedQuery, currentPage, topRatedQueryValues, saveMoviesDiscoverTop);
 };
 
+export const fetchMoviesDiscoverUpcoming = (unparsedQuery, currentPage) => {
+  return _fetchMoviesBase(unparsedQuery, currentPage, upcomingQueryValues, saveMoviesDiscoverUpcoming);
+};
