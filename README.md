@@ -8,7 +8,7 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://reactjs.org/)
+* [ReactJS](https://reactjs.org/)
 
 ## Installation and Running
 
