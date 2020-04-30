@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/movie-explorer/static/css/main.e332bd74.chunk.css",
+    "main.js": "/movie-explorer/static/js/main.af0f0e7e.chunk.js",
+    "main.js.map": "/movie-explorer/static/js/main.af0f0e7e.chunk.js.map",
+    "runtime-main.js": "/movie-explorer/static/js/runtime-main.13e1181c.js",
+    "runtime-main.js.map": "/movie-explorer/static/js/runtime-main.13e1181c.js.map",
+    "static/css/2.b90ce945.chunk.css": "/movie-explorer/static/css/2.b90ce945.chunk.css",
+    "static/js/2.70399700.chunk.js": "/movie-explorer/static/js/2.70399700.chunk.js",
+    "static/js/2.70399700.chunk.js.map": "/movie-explorer/static/js/2.70399700.chunk.js.map",
+    "index.html": "/movie-explorer/index.html",
+    "precache-manifest.62e0aee0c006c12739db52e1bf85b1a0.js": "/movie-explorer/precache-manifest.62e0aee0c006c12739db52e1bf85b1a0.js",
+    "service-worker.js": "/movie-explorer/service-worker.js",
+    "static/css/2.b90ce945.chunk.css.map": "/movie-explorer/static/css/2.b90ce945.chunk.css.map",
+    "static/css/main.e332bd74.chunk.css.map": "/movie-explorer/static/css/main.e332bd74.chunk.css.map",
+    "static/js/2.70399700.chunk.js.LICENSE.txt": "/movie-explorer/static/js/2.70399700.chunk.js.LICENSE.txt",
+    "static/media/astronaut.svg": "/movie-explorer/static/media/astronaut.4440e9a9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.13e1181c.js",
+    "static/css/2.b90ce945.chunk.css",
+    "static/js/2.70399700.chunk.js",
+    "static/css/main.e332bd74.chunk.css",
+    "static/js/main.af0f0e7e.chunk.js"
+  ]
+}
