@@ -20,5 +20,5 @@ npm start
 
 ## TODO List
 
-- [] User Profile page and corresponding actions (including collections);
+[] User Profile page and corresponding actions (including collections);
   Unfortunately for now, TMDB API is not providing endpoints for adding new reviews;
