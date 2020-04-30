@@ -1,4 +1,4 @@
-# TMEX (The Movie Explorer)
+## TMEX (The Movie Explorer)
 
 React and Redux application to browse Movies, TV shows and Actors.
 
@@ -12,11 +12,13 @@ You will need the following things properly installed on your computer.
 
 ## Installation and Running
 
-* `git clone <repository-url>` this repository
-* `npm install`
-* `npm start`
+```
+git clone https://github.com/paldave/movie-explorer
+npm install
+npm start
+```
 
 ## TODO List
 
-- User Profile page and corresponding actions (including collections);
+- [] User Profile page and corresponding actions (including collections);
   Unfortunately for now, TMDB API is not providing endpoints for adding new reviews;
