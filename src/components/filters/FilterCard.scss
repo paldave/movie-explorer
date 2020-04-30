@@ -15,6 +15,22 @@
 
   width: 290px;
 
+  &.disabled {
+    cursor: auto;
+    pointer-events: none;
+    background-color: $transparent-color-01dp;
+
+    .name {
+      color: $white-disabled-color;
+    }
+  }
+
+  &.selected {
+    cursor: auto;
+    pointer-events: none;
+    background-color: $pink-secondary-color;
+  }
+
   + .filter-card {
     margin-top: 10px;
   }

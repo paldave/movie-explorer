@@ -20,6 +20,17 @@ const _sortByKey = (data, key, additionalFunction) => {
   }).slice(0, 12);
 };
 
+const _removeDuplicates = (array) => {
+  const duplicatedHash = new Set();
+
+  return array.filter((item) => {
+    const duplicate = duplicatedHash.has(item.id);
+    duplicatedHash.add(item.id);
+    
+    return !duplicate;
+  });
+}
+
 const _parseItemCredits = (data, dateKey) => {
   let parsedHash = {};
 
@@ -68,11 +79,11 @@ const savePersonDetails = (payload) => {
   payload.movie_credits = _parseItemCredits(payload.movie_credits, 'release_date');
   payload.tv_credits = _parseItemCredits(payload.tv_credits, 'first_air_date');
 
-  payload.most_known_for = _sortByKey(
+  payload.most_known_for = _removeDuplicates(_sortByKey(
     payload.combined_credits.cast.slice(),
     'vote_count',
     parseFloat
-  );
+  ));
 
   return {
     type: GET_PERSON_DETAILS,

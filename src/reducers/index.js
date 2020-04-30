@@ -17,6 +17,7 @@ import {
   tvDiscoverTop
 } from './tv/discover';
 import personDetails from './personDetails';
+import search from './search';
 
 export default combineReducers({
   userInterface,
@@ -32,5 +33,6 @@ export default combineReducers({
   tvDetails,
   tvDiscover,
   tvDiscoverTop,
-  personDetails
+  personDetails,
+  search
 });

@@ -50,7 +50,7 @@ class Home extends Component {
         <div className="body-container">
           <div className="body-wrapper">
             <div className="home-welcome">
-              <h1>Space is for everybody. Just like movies. <br/> Explore, review and share what you like. </h1>
+              <h1>Space is for everybody. Just like movies. <br/> Explore and share what you like. </h1>
             </div>
             <section id="movies-popular">
               <SectionHeader

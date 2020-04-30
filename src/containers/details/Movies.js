@@ -113,11 +113,17 @@ class MoviesDetails extends Component {
             </section>
             {this.renderSidebar()}
             <section className="item-details-cast">
-              <SectionHeader
-                title='Cast'
-                linkName='View full Cast & Crew'
-                linkTo={linkToCast}
-              />
+              {data.credits.cast.length === 0 && Object.keys(data.credits.crew).length === 0 ? (
+                <SectionHeader
+                  title='Cast'
+                />
+              ) : (
+                <SectionHeader
+                  title='Cast'
+                  linkName='View full Cast & Crew'
+                  linkTo={linkToCast}
+                />
+              )}
               <ItemList
                 data={data.credits.cast}
                 apiConfig={apiConfig}

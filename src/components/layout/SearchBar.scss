@@ -82,16 +82,20 @@
   }
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+  .search-bar .search-bar-wrapper {
+    .search-bar-button, .search-close {
+      display: none;
+    }
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .search-bar .search-bar-wrapper {
     width: 90vw;
 
     form input[type=text] {
       padding: 0 20px;
-    }
-
-    .search-bar-button, .search-close {
-      display: none;
     }
   }
 }

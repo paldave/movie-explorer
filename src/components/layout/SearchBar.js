@@ -1,15 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { IoMdClose } from 'react-icons/io';
 import './SearchBar.scss';
 
-const SearchBar = ({ showSearchBar, setShowSearchBar }) => {
+const SearchBar = ({ showSearchBar, setShowSearchBar, searchAlwaysVisible }) => {
+  const history = useHistory();
   const [searchValue, setSearchValue] = useState('');
   const searchInputRef = useRef(null);
 
   useEffect(() => {
-    searchInputRef.current.focus();
-  }, [showSearchBar]);
+    if (!searchAlwaysVisible) {
+      searchInputRef.current.focus();
+    } else {
+      searchInputRef.current.blur();
+    }
+
+    if (history.location.state) {
+      setSearchValue(history.location.state.query);
+    }
+
+    if (!showSearchBar && searchValue.length > 0) {
+      setSearchValue('');
+    }
+  }, [searchAlwaysVisible, history.location.state, showSearchBar, searchValue.length]);
 
   const handleSearchInput = (event) => {
     setSearchValue(event.target.value);
@@ -17,7 +31,11 @@ const SearchBar = ({ showSearchBar, setShowSearchBar }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('>>>> submit');
+
+    history.push({
+      pathname: '/search',
+      state: { query: searchValue }
+    })
   }
 
   return (
@@ -39,12 +57,14 @@ const SearchBar = ({ showSearchBar, setShowSearchBar }) => {
           >
             <span className="label">Search</span>
           </button>
-          <span 
-            className="search-close"
-            onClick={() => (setShowSearchBar((prevState) => setShowSearchBar(!prevState)))}
-          >
-            <IoMdClose/>
-          </span>
+          {!searchAlwaysVisible && (
+            <span 
+              className="search-close"
+              onClick={() => (setShowSearchBar((prevState) => setShowSearchBar(!prevState)))}
+            >
+              <IoMdClose/>
+            </span>
+          )}
         </form>
       </div>
     </section>
@@ -52,8 +72,9 @@ const SearchBar = ({ showSearchBar, setShowSearchBar }) => {
 };
 
 SearchBar.propTypes = {
-  showSearchBar: PropTypes.bool.isRequired,
-  setShowSearchBar: PropTypes.func.isRequired
+  showSearchBar: PropTypes.bool,
+  setShowSearchBar: PropTypes.func,
+  searchAlwaysVisible: PropTypes.bool
 };
 
 export default SearchBar

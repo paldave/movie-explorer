@@ -19,6 +19,10 @@ export const RELEASE_DATE = {
   lessThan: { type: 'primary_release_date.lte', value: null, label: 'To: ' }
 }
 
+export const defaultSearchQueryValues = () => ({
+  include_adult: false
+});
+
 export const defaultQueryValues = () => ({
   include_adult: false,
   include_video: false,

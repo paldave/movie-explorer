@@ -22,6 +22,8 @@ import TvTopRated from './grids/tv/TopRated';
 
 import Person from './Person';
 
+import Search from './Search';
+
 class App extends Component {
   static propTypes = {
     fetchApiConfig: PropTypes.func.isRequired
@@ -56,6 +58,8 @@ class App extends Component {
             <Route exact path="/tv" component={TvPopular}/>
 
             <Route path="/person-details/:id" component={Person}/>
+
+            <Route exact path="/search" component={Search}/>
           </Switch>
         </div>
       </BrowserRouter>

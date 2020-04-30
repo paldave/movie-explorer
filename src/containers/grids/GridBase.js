@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { clearStoreState } from '../../actions/movies/discover';
-import ReactPaginate from 'react-paginate';
 import Paginate from '../../components/Paginate';
 import SplashScreen from '../../components/layout/SplashScreen';
 import ItemThumb from '../../components/cards/ItemThumb';
 import FilterList from '../../components/filters/FilterList';
 import SimpleLoader from '../../components/layout/SimpleLoader';
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import { SORT_BY } from '../../helpers/query';
 import './GridBase.scss';
 

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Sidebar from './Sidebar';
@@ -8,7 +9,13 @@ import logo from '../../images/astronaut.svg';
 import './Navbar.scss';
 
 const Navbar = () => {
-  const [showSearchBar, setShowSearchBar] = useState(false);
+  const history = useHistory();
+  const searchAlwaysVisible = history.location.pathname === '/search';
+  const [showSearchBar, setShowSearchBar] = useState(searchAlwaysVisible);
+
+  useEffect(() => {
+    setShowSearchBar(searchAlwaysVisible);
+  }, [searchAlwaysVisible]);
 
   const searchIcon = () => {
     return (
@@ -72,13 +79,18 @@ const Navbar = () => {
                 </Link>
               </div>
             </Popup>
-            {searchIcon()}
+            {!searchAlwaysVisible && (
+              <>
+                {searchIcon()}
+              </>
+            )}
           </ul>          
         </div>
       </div>
       <SearchBar 
         showSearchBar={showSearchBar}
         setShowSearchBar={setShowSearchBar}
+        searchAlwaysVisible={searchAlwaysVisible}
       />
     </header>
   );

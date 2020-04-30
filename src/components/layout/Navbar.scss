@@ -105,11 +105,9 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media (min-width: 320px) and (max-width: 480px) {
   .navbar-wrapper {
     .navbar {
-      max-width: 90vw;
-
       .sidebar {
         display: flex;
       }
@@ -117,6 +115,14 @@
       .navbar-right {
         display: none;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .navbar-wrapper {
+    .navbar {
+      max-width: 90vw;
     }
   }
 }
