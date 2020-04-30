@@ -46,6 +46,27 @@
         }
       }
     }
+    
+    .github-code {
+      font-size: 20px;
+
+      margin-top: auto;
+      margin-bottom: auto;
+
+      cursor: pointer;
+
+      display: table-cell;
+      
+      span {
+        padding: 0 2px;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      svg {
+        font-size: 40px;
+      }
+    }
   
     .navbar-right {
       height: 100%;
@@ -123,6 +144,10 @@
   .navbar-wrapper {
     .navbar {
       max-width: 90vw;
+
+      .github-code {
+        display: none;
+      }
     }
   }
 }

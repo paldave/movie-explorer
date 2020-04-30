@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import Sidebar from './Sidebar';
 import SearchBar from './SearchBar';
-import { IoIosSearch } from 'react-icons/io';
+import { IoIosSearch, IoLogoGithub } from 'react-icons/io';
 import logo from '../../images/astronaut.svg';
 import './Navbar.scss';
 
@@ -42,6 +42,12 @@ const Navbar = () => {
           showSearchBar={showSearchBar}
           setShowSearchBar={setShowSearchBar}
         />
+        <div className="github-code">
+          <a href="https://github.com/paldave/movie-explorer">
+            <span>View code</span>
+            <span><IoLogoGithub/></span>
+          </a>
+        </div>
         <div className="navbar-right">
           <ul> 
             <Popup
