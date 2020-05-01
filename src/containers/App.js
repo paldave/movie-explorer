@@ -39,27 +39,27 @@ class App extends Component {
     }
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="App">
           <ScrollToTop/>
           <Navbar/>
           <Switch>
-            <Route exact path="/" component={Home}/>
+            <Route exact path="/search" component={Search}/>
 
             <Route path="/movies/details/:id/full-cast" component={MoviesCast}/>
             <Route path="/movies/details/:id" component={MoviesDetails}/>
-            <Route exact path="/movies/upcoming" component={MoviesUpcoming}/>
-            <Route exact path="/movies/top-rated" component={MoviesTopRated}/>
-            <Route exact path="/movies" component={MoviesPopular}/>
+            <Route path="/movies/upcoming" component={MoviesUpcoming}/>
+            <Route path="/movies/top-rated" component={MoviesTopRated}/>
+            <Route path="/movies" component={MoviesPopular}/>
 
             <Route path="/tv/details/:id/full-cast" component={TvCast}/>
             <Route path="/tv/details/:id" component={TvDetails}/>
-            <Route exact path="/tv/top-rated" component={TvTopRated}/>
-            <Route exact path="/tv" component={TvPopular}/>
+            <Route path="/tv/top-rated" component={TvTopRated}/>
+            <Route path="/tv" component={TvPopular}/>
 
             <Route path="/person-details/:id" component={Person}/>
 
-            <Route exact path="/search" component={Search}/>
+            <Route exact path="/" component={Home}/>
           </Switch>
         </div>
       </BrowserRouter>
