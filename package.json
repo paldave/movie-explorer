@@ -1,7 +1,7 @@
 {
   "homepage": "https://paldave.github.io/movie-explorer",
   "name": "movie-explorer",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "axios": "^0.18.1",

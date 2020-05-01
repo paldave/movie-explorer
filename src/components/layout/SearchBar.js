@@ -32,6 +32,10 @@ const SearchBar = ({ showSearchBar, setShowSearchBar, searchAlwaysVisible }) => 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (searchValue === '') {
+      return;
+    }
+
     history.push({
       pathname: '/search',
       state: { query: searchValue }
