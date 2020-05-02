@@ -12,18 +12,18 @@ const SearchBar = ({ showSearchBar, setShowSearchBar, searchAlwaysVisible }) => 
   useEffect(() => {
     if (!searchAlwaysVisible) {
       searchInputRef.current.focus();
-    } else {
-      searchInputRef.current.blur();
-    }
-
-    if (history.location.state) {
-      setSearchValue(history.location.state.query);
     }
 
     if (!showSearchBar && searchValue.length > 0) {
       setSearchValue('');
     }
-  }, [searchAlwaysVisible, history.location.state, showSearchBar, searchValue.length]);
+  }, [searchAlwaysVisible, showSearchBar, searchValue.length]);
+
+  useEffect(() => {
+    if (history.location.state) {
+      setSearchValue(history.location.state.query);
+    } 
+  }, [history.location.state]);
 
   const handleSearchInput = (event) => {
     setSearchValue(event.target.value);
@@ -35,6 +35,8 @@ const SearchBar = ({ showSearchBar, setShowSearchBar, searchAlwaysVisible }) => 
     if (searchValue === '') {
       return;
     }
+
+    searchInputRef.current.blur();
 
     history.push({
       pathname: '/search',
