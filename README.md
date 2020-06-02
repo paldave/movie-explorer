@@ -18,7 +18,9 @@ npm install
 npm start
 ```
 
-## TODO List
+## Things to consider
 
-[] User Profile page and corresponding actions (including collections);
+- [ ] :exclamation: Rewrite project structure to use [Ducks](https://github.com/erikras/ducks-modular-redux).
+  It's going to be much easier to develop new features in a long run;
+- [ ] User Profile page and corresponding actions (including collections);
   Unfortunately for now, TMDB API is not providing endpoints for adding new reviews;
