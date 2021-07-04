@@ -1,3 +1,8 @@
+## Project Archived :exclamation:
+
+- Lack of Redux Toolkit
+- Better structure
+
 ## TMEX (The Movie Explorer)
 
 React and Redux application to browse Movies, TV shows and Actors.
