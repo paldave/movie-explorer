@@ -2,6 +2,8 @@
 
 - Lack of Redux Toolkit
 - Better structure
+- Emotion for CSS in JS
+- Hooks
 
 ## TMEX (The Movie Explorer)
 
